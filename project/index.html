@@ -24,25 +24,49 @@
     <script type="text/babel">
     function UserList(props) {
           const users = props.users;
-          const listItems = users.map((user) =>
-            <td>{user}</td>
-          );
+          const listItems = users.map((user) => {
+              return <tr><td>{user.name}</td><td>{user.surname}</td><td>{user.email}</td><td>{user.delRequest}</td></tr>;
+          });
           return (
-            <tr>{listItems}</tr>
+            listItems
           );
         }
 
-    let user1 = ['Максим', 'Василевский', 'maksimvasilevskiy_1@mail.ru', 'false'];
-    let user2 = ['Иван', 'Сергеев', 'ivan_1@mail.ru', 'false'];
-    let user3 = ['Алексей', 'Шевченко', 'alexey_1@mail.ru', 'true'];
-    let user4 = ['Пётр', 'Кислов', 'petr_1@mail.ru', 'flase'];
-    let user5 = ['Марина', 'Ковалёва', 'marina_1@mail.ru', 'flase'];
-    let user6 = ['Сергей', 'Петренко', 'sergey_1@mail.ru', 'flase'];
-    let user7 = ['Ольга', 'Волкова', 'olga_1@mail.ru', 'flase'];
-    let user8 = ['Александра', 'Суслова', 'alexandr_1@mail.ru', 'flase'];
-    let user9 = ['Василий', 'Иванов', 'vasiliy_1@mail.ru', 'flase'];
-    let user10 = ['Михаил', 'Кириллов', 'mihail_1@mail.ru', 'flase'];
-
+    let users = [ 
+        {
+            name: 'Максим', 
+            surname: 'Василевский', 
+            email: 'maksimvasilevskiy_1@mail.ru', 
+            delRequest:'false'
+        },
+        {
+            name: 'Александр', 
+            surname: 'Иванов', 
+            email: 'alexivanov_1@mail.ru', 
+            delRequest:'false'
+        },
+        {
+            name: 'Андрей', 
+            surname: 'Петров', 
+            email: 'andreypetrov_1@mail.ru', 
+            delRequest:'false'
+        },
+        {
+            name: 'Александра', 
+            surname: 'Суслова', 
+            email: 'alexandrasuslova_1@mail.ru', 
+            delRequest:'false'
+        },
+        {
+            name: 'Ольга', 
+            surname: 'Волкова', 
+            email: 'olgavolkova_1@mail.ru', 
+            delRequest:'false'
+        }
+    ];
+    let serialUsers = JSON.stringify(users);
+    localStorage.setItem("users",serialUsers);
+    let returnedUsers = JSON.parse(localStorage.getItem("users"));
     ReactDOM.render(
             <div class="header__content">  
             <div class="container">
@@ -154,16 +178,8 @@
                                     <th>Email</th>
                                     <th>Remove request</th>
                                   </tr>
-                                  <UserList users={user1} />
-                                  <UserList users={user2} />
-                                  <UserList users={user3} />
-                                  <UserList users={user4} />
-                                  <UserList users={user5} />
-                                  <UserList users={user6} />
-                                  <UserList users={user7} />
-                                  <UserList users={user8} />
-                                  <UserList users={user9} />
-                                  <UserList users={user10} />
+                                  <UserList users={returnedUsers}/>
+                                  
                                 </table>
                                 
                             </div>
