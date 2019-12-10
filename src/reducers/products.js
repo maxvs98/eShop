@@ -1,10 +1,12 @@
 const initialState = {
-  products: [{
-    id: 0,
-    title: 'T-shirt',
-    description: 'black',
-    price: 0.99
-  }]
+  products: [
+    {
+      id: 0,
+      title: 'T-shirt',
+      description: 'red',
+      price: 0.99
+    }
+  ]
 };
 
 export default (state = initialState, action) => {
