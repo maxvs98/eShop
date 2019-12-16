@@ -5,7 +5,7 @@ import Menu from '../components/Menu';
 import uniqBy from 'lodash/uniqBy';
 
 const mapStateToProps = ({ cart }) => ({
-  totalPrice: cart.items.reduce((total, product) => total + product.price, 0),
+  totalPrice: parseFloat((cart.items.reduce((total, product) => total + product.price, 0)).toFixed(3)),
   count: cart.items.length,
   items: uniqBy(cart.items, o => o.id)
 });

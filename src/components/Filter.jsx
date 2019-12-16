@@ -27,13 +27,7 @@ const Filter = ({ setFilter, filterBy, searchQuery, setSearchQuery }) => (
     >
     Дешёвые
     </Menu.Item>
-    <Menu.Item
-      active={filterBy === 'author'}
-      onClick={setFilter.bind(this, 'author')}
-    >
-    Автор
-    </Menu.Item>
-    <Menu.Item>
+    <Menu.Item position='right'>
       <Input
        value={searchQuery}
        onChange = {e => setSearchQuery(e.target.value)}
