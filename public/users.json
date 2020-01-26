@@ -1,0 +1,58 @@
+[
+  {
+    "id": 0,
+    "first name": "Maxim",
+    "last name": "Vasilevskiy",
+    "e-mail": "maksimvasilevskiy@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 1,
+    "first name": "Alexander",
+    "last name": "Miranovich",
+    "e-mail": "alexandermiranovich@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 2,
+    "first name": "Vadim",
+    "last name": "Sergeev",
+    "e-mail": "vadimsergeev@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 3,
+    "first name": "Sharova",
+    "last name": "Valeriya",
+    "e-mail": "sharovavaleriya@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 4,
+    "first name": "Petr",
+    "last name": "Ivanov",
+    "e-mail": "petrivanov@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 5,
+    "first name": "Leonov",
+    "last name": "Igor",
+    "e-mail": "leonovigor@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 6,
+    "first name": "Alexandra",
+    "last name": "Suslova",
+    "e-mail": "alexandrasuslova@mail.ru",
+    "remove request": false
+  },
+  {
+    "id": 7,
+    "first name": "Alexander",
+    "last name": "Nikitin",
+    "e-mail": "alexandernikitin@mail.ru",
+    "remove request": false
+  }
+]

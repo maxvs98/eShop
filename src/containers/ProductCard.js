@@ -14,4 +14,11 @@ const mapDispatchToProps = dispatch => ({
    ...bindActionCreators(cartActions, dispatch)
 });
 
+/*const mapDispatchToProps = dispatch => ({
+   //...bindActionCreators(cartActions, dispatch)
+   setProducts: (data) => (
+     dispatch(setProducts(data));
+   )
+});*/
+
 export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

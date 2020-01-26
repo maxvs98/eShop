@@ -14,7 +14,7 @@ const ProductCard = product => {
       </Card.Content>
       <Card.Content extra>
         <a>
-          <Icon name='rub' />
+          <Icon name='dollar sign' />
           {price}
         </a>
       </Card.Content>
