@@ -49,7 +49,7 @@ import Filter from '../containers/Filter';
 import Menu from '../containers/Menu';
 import { Card } from 'semantic-ui-react';
 import Shop from '../containers/Shop';
-import Users from './Users';
+import Users from '../containers/Users';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends Component {

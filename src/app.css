@@ -137,3 +137,34 @@ a {
   color: #a1a8bd;
   font-weight: 800;
 }
+
+.filter__item {
+  font: 100% "Montserrat", sans-serif;
+  color: red;
+}
+
+.main-content__table {
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.main-content__table table {
+  margin: 0px auto;
+}
+
+.main-content {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+th {
+  width: 250px;
+  border: 1px solid #dfe4ee;
+  background-color: #f0f2f7;
+}
+
+td {
+  width: 250px;
+  border: 1px solid #dfe4ee;
+}
