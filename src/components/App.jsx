@@ -1,80 +1,60 @@
-/*import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
-import axios from 'axios';
-import ProductCard from '../containers/ProductCard';
-import Filter from '../containers/Filter';
-import Menu from '../containers/Menu';
-import { Card } from 'semantic-ui-react';
-
-class App extends Component {
-  componentDidMount() {
-    const { setProducts } = this.props;
-    axios.get('/products.json').then(({ data }) => {
-      setProducts(data);
-    });
-  }
-
-  render() {
-    const { products, isReady } = this.props;
-
-    return (
-      <div>
-        <div class="header__content">
-          <Menu />
-          <Container>
-            <Filter />
-          </Container>
-        </div>
-        <Container>
-          <Card.Group itemsPerRow={4}>
-            {!isReady
-              ? 'загрузка'
-              : products.map((product, i) => (
-                <ProductCard key={i} {...product} />
-              ))}
-          </Card.Group>
-        </Container>
-      </div>
-    );
-  }
-}
-
-export default App;*/
-
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
-import axios from 'axios';
-import ProductCard from '../containers/ProductCard';
-import Filter from '../containers/Filter';
-import Menu from '../containers/Menu';
-import { Card } from 'semantic-ui-react';
-import Shop from '../containers/Shop';
-import Users from '../containers/Users';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Shop from './Shop';
+import Users from './Users';
+import Home from './Home';
+import LoginComp from './LoginComp';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
+
+const fakeAuth = {
+  isAuth: false,
+  authenticate(callback) {
+    this.isAuth = true;
+    setTimeout(callback, 100);
+  },
+  logout(callback) {
+    this.isAuth = false;
+    setTimeout(callback, 100);
+  }
+};
 
 class App extends Component {
-
-
   render() {
     return (
       <Router>
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/users" component={Users}/>
           <Route path="/shop" component={Shop}/>
+          <Route path="/login" component={LoginComp} />
+          <PrivateRoute path="/users" component={Users} />
         </Switch>
       </Router>
     );
   }
 }
 
-const Home = () => (
-  <div>
-    <div class="header__content">
-      <Menu />
-    </div>
-    Home page
-  </div>
-);
+const PrivateRoute = ({ component: Comp, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        fakeAuth.isAuth ? (
+          <Comp {...props} />
+        ) : (
+          <Redirect
+            to={{ pathname: "/login", state: { from: props.location } }}
+          />
+        )
+      }
+    />
+  );
+};
 
 export default App;

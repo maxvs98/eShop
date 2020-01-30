@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Popup, List, Button, Image, Icon } from 'semantic-ui-react';
 import logo from '../logo.png';
+import AuthButton from './AuthButton';
 import { Link } from 'react-router-dom';
 
 const CartComponent = ({title, id, picture, removeFromCart}) => (
@@ -70,21 +71,17 @@ const MenuComponent = ({ totalPrice, count, items }) => (
                 />
               </div>
             </a>
-
           </div>
           <div class="col-md-1 text-center">
-            <a href="#">
+            <Link to="/login">
               <div class="signInButton">
-                SIGN IN
+                Sign in
               </div>
-            </a>
+            </Link>
           </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="devider">
-      </div>
-    </div>
+
   </div>
 );
 

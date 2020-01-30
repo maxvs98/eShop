@@ -4,36 +4,30 @@ import axios from 'axios';
 import ProductCard from '../containers/ProductCard';
 import Filter from '../containers/Filter';
 import Menu from '../containers/Menu';
+import Cards from '../containers/Cards';
+import Footer from './Footer';
 import { Card } from 'semantic-ui-react';
 
 class Shop extends Component {
-  componentDidMount() {
-    const { setProducts } = this.props;
-    axios.get('/products.json').then(({ data }) => {
-      setProducts(data);
-    });
-  }
-
   render() {
     const { products, isReady } = this.props;
-
     return (
       <div>
         <div class="header__content">
           <Menu />
+
+        </div>
+        <div class="container-fluid">
+          <div class="devider">
+          </div>
+        </div>
+        <div class="filter__content">
           <Container>
             <Filter />
           </Container>
         </div>
-        <Container>
-          <Card.Group itemsPerRow={4}>
-            {!isReady
-              ? 'загрузка'
-              : products.map((product, i) => (
-                <ProductCard key={i} {...product} />
-              ))}
-          </Card.Group>
-        </Container>
+        <Cards />
+        <Footer />
       </div>
     );
   }

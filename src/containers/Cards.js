@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
    ...bindActionCreators(productsActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Shop);
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);

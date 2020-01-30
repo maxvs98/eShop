@@ -6,6 +6,7 @@ const Filter = ({ setFilter, filterBy, searchQuery, setSearchQuery }) => (
     <Menu.Item
       active={filterBy === 'all'}
       onClick={setFilter.bind(this, 'all')}
+      class="filter__item"
     >
     Все
     </Menu.Item>

@@ -7,9 +7,11 @@ import Menu from '../containers/Menu';
 import { Card } from 'semantic-ui-react';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-class Shop extends Component {
+class Cards extends Component {
   componentDidMount() {
     const { setProducts } = this.props;
+    console.log("side effect");
+    //создать instance
     axios.get('/products.json').then(({ data }) => {
       setProducts(data);
     });
@@ -19,6 +21,7 @@ class Shop extends Component {
     const { products, isReady } = this.props;
 
     return (
+      <div class="cards__content">
         <Container>
           <Card.Group itemsPerRow={4}>
             {!isReady
@@ -28,8 +31,9 @@ class Shop extends Component {
               ))}
           </Card.Group>
         </Container>
+      </div>
     );
   }
 }
 
-export default Shop;
+export default Cards;
