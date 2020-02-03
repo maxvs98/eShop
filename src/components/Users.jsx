@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import axios from 'axios';
-import Menu from '../containers/Menu';
-import UserTable from '../containers/UserTable';
+import Menu from '../Menu/MenuContainer';
+import UserTable from '../UserTable/UserTableContainer';
 import Footer from './Footer';
 
 class Users extends Component {

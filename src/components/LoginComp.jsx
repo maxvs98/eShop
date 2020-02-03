@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import Footer from './Footer';
-import Menu from '../containers/Menu';
+import Menu from '../Menu/MenuContainer';
 import { Icon } from 'semantic-ui-react';
 
 class Home extends Component {

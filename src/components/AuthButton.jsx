@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Container } from 'semantic-ui-react';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,33 +8,34 @@ import {
   withRouter
 } from "react-router-dom";
 
-const fakeAuth = {
-  isAuth: false,
-  authenticate(callback) {
-    this.isAuth = true;
-    setTimeout(callback, 100);
-  },
-  logout(callback) {
-    this.isAuth = false;
-    setTimeout(callback, 100);
-  }
-};
+class AuthButton extends Component {
+  render() {
+    const { role, isAuth, login, logout } = this.props;
+    return (
+      isAuth ? (
+        <p>
+          <button class="auth-button"
+            onClick={() => {
+              logout("no");//logout(() => history.push("/"));
+            }}
+          >
+            Sign out
+          </button>
+        </p>
+      ) : (
+        <p>
+          <button class="auth-button"
+            onClick={() => {
+              login("user");
+            }}
+          >
+            Sign in
+          </button>
 
-const AuthButton = withRouter(({ history }) =>
-  fakeAuth.isAuth ? (
-    <p>
-      Welcome!{" "}
-      <button
-        onClick={() => {
-          fakeAuth.logout(() => history.push("/"));
-        }}
-      >
-        Sign out
-      </button>
-    </p>
-  ) : (
-    <p>You are not logged in.</p>
-  )
-);
+        </p>
+      )
+    );
+  }
+}
 
 export default AuthButton;

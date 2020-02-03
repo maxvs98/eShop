@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 
-class UserTable extends Component {
+class UserTableComponent extends Component {
   componentDidMount() {
     const { setUsers } = this.props;
     axios.get('/users.json').then(({ data }) => {
@@ -34,4 +34,4 @@ class UserTable extends Component {
   }
 }
 
-export default UserTable;
+export default UserTableComponent;

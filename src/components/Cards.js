@@ -3,7 +3,6 @@ import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 import ProductCard from '../containers/ProductCard';
 import Filter from '../containers/Filter';
-import Menu from '../containers/Menu';
 import { Card } from 'semantic-ui-react';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';

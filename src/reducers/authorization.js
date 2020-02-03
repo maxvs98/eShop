@@ -1,6 +1,6 @@
 const initialState = {
-  role: null,
-  isAuth: false
+  isAuth: false,
+  role: "guest"
 };
 
 export default (state = initialState, action) => {
@@ -8,14 +8,14 @@ export default (state = initialState, action) => {
     case 'LOGIN':
       return {
         ...state,
-        isAuth: true,
-        role: action.payload
+        role: action.payload,
+        isAuth: true
       };
     case 'LOGOUT':
       return {
         ...state,
-        isAuth: false,
-        role: null
+        role: "guest",
+        isAuth: false
       };
     default:
       return state;

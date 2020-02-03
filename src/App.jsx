@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Shop from './Shop';
-import Users from './Users';
-import Home from './Home';
-import LoginComp from './LoginComp';
+import Shop from './components/Shop';
+import Users from './components/Users';
+import Home from './components/Home';
+import LoginComp from './components/LoginComp';
+import PrivateRoute from './containers/PrivateRoute';
 
 import {
   BrowserRouter as Router,
@@ -39,22 +40,5 @@ class App extends Component {
     );
   }
 }
-
-const PrivateRoute = ({ component: Comp, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        fakeAuth.isAuth ? (
-          <Comp {...props} />
-        ) : (
-          <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
-          />
-        )
-      }
-    />
-  );
-};
 
 export default App;

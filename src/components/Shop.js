@@ -3,7 +3,7 @@ import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 import ProductCard from '../containers/ProductCard';
 import Filter from '../containers/Filter';
-import Menu from '../containers/Menu';
+import Menu from '../Menu/MenuContainer';
 import Cards from '../containers/Cards';
 import Footer from './Footer';
 import { Card } from 'semantic-ui-react';
@@ -15,7 +15,6 @@ class Shop extends Component {
       <div>
         <div class="header__content">
           <Menu />
-
         </div>
         <div class="container-fluid">
           <div class="devider">
