@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as authorizationActions from '../actions/authorization';
-import AuthButton from '../components/AuthButton';
+import PrivateRouteComponent from './PrivateRouteComponent';
 
 const mapStateToProps = ({ authorization }) => ({
   role: authorization.role,
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
    ...bindActionCreators(authorizationActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthButton);
+export default connect(mapStateToProps, mapDispatchToProps)(PrivateRouteComponent);

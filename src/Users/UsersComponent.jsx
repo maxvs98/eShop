@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import axios from 'axios';
 import Menu from '../Menu/MenuContainer';
 import UserTable from '../UserTable/UserTableContainer';
-import Footer from './Footer';
+import Footer from '../Footer/FooterComponent';
 
-class Users extends Component {
+class UsersComponent extends Component {
   render() {
-    const { users, isReady } = this.props;
     return (
       <div>
         <div class="header__content">
@@ -26,4 +24,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default UsersComponent;

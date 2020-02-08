@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   Redirect,
-  withRouter
 } from "react-router-dom";
 
-class PrivateRoute extends Component {
+class PrivateRouteComponent extends Component {
   render() {
     const { isAuth, component: Comp, ...rest } = this.props;
     return (
@@ -28,4 +24,4 @@ class PrivateRoute extends Component {
   }
 }
 
-export default PrivateRoute;
+export default PrivateRouteComponent;

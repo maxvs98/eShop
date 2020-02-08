@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Icon, Button } from 'semantic-ui-react';
 
-const Footer = () => {
+const FooterComponent = () => {
   return (
     <section id="footer" class="footer">
       <div class="container">
@@ -61,4 +61,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterComponent;

@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import axios from 'axios';
-import ProductCard from '../containers/ProductCard';
-import Filter from '../containers/Filter';
+import axiosInstance from '../axiosInstance';
+import ProductCard from '../ProductCard/ProductCardContainer';
 import { Card } from 'semantic-ui-react';
+import thunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
+import users from '../reducers/users';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-class Cards extends Component {
+class CardsComponent extends Component {
+
   componentDidMount() {
-    const { setProducts } = this.props;
-    console.log("side effect");
+    const { loadData } = this.props;
     //создать instance
-    axios.get('/products.json').then(({ data }) => {
-      setProducts(data);
-    });
+    loadData();
   }
 
   render() {
     const { products, isReady } = this.props;
-
     return (
       <div class="cards__content">
         <Container>
@@ -35,4 +34,4 @@ class Cards extends Component {
   }
 }
 
-export default Cards;
+export default CardsComponent;

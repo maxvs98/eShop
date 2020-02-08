@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
 
-class AuthButton extends Component {
+class AuthButtonComponent extends Component {
   render() {
-    const { role, isAuth, login, logout } = this.props;
+    const { isAuth, login, logout } = this.props;
     return (
       isAuth ? (
         <p>
           <button class="auth-button"
             onClick={() => {
-              logout("no");//logout(() => history.push("/"));
+              logout();//logout(() => history.push("/"));
             }}
           >
             Sign out
@@ -31,11 +23,10 @@ class AuthButton extends Component {
           >
             Sign in
           </button>
-
         </p>
       )
     );
   }
 }
 
-export default AuthButton;
+export default AuthButtonComponent;

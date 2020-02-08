@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Popup, List, Button, Image, Icon } from 'semantic-ui-react';
-import logo from './logo.png';
-import AuthButton from '../containers/AuthButton';
+import logo from './img/logo.png';
+import AuthButton from '../AuthButton/AuthButtonContainer';
 import { Link } from 'react-router-dom';
 
 const CartComponent = ({title, id, picture, removeFromCart}) => (

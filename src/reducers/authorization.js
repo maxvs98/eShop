@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
     case 'LOGIN':
       return {
         ...state,
-        role: action.payload,
+        role: action.payload.role,
         isAuth: true
       };
     case 'LOGOUT':

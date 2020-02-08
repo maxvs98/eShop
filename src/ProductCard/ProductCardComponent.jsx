@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Icon, Button } from 'semantic-ui-react';
 
-const ProductCard = product => {
+const ProductCardComponent = product => {
   const { title, description, price, picture, addToCart, addedCount } = product;
   return (
     <Card>
@@ -13,10 +13,8 @@ const ProductCard = product => {
         </Card.Meta>
       </Card.Content>
       <Card.Content extra>
-        <a>
           <Icon name='dollar sign' />
           {price}
-        </a>
       </Card.Content>
       <Button onClick={addToCart.bind(this, product)} color='black'>
         Добавить в корзину {addedCount > 0 && `(${addedCount})`}
@@ -25,4 +23,4 @@ const ProductCard = product => {
   );
 };
 
-export default ProductCard;
+export default ProductCardComponent;

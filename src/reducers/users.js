@@ -4,11 +4,11 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'SET_USERS':
       return {
         ...state,
-        items: action.payload,
+        items: action.payload.users,
         isReady: true
       };
     case 'ADD_USERS':

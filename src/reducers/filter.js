@@ -8,12 +8,12 @@ export default (state = initialState, action) => {
     case 'SET_QUERY':
       return {
         ...state,
-        searchQuery: action.payload
+        searchQuery: action.payload.value
       };
     case 'SET_FILTER':
       return {
         ...state,
-        filterBy: action.payload
+        filterBy: action.payload.filter
       };
     default:
       return state;

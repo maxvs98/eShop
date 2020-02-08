@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
-import Footer from './Footer';
+import { Container, Icon } from 'semantic-ui-react';
+import Footer from '../Footer/FooterComponent';
 import Menu from '../Menu/MenuContainer';
-import { Icon } from 'semantic-ui-react';
 
-class Home extends Component {
+class HomeComponent extends Component {
   render() {
     return (
       <div>
@@ -77,4 +76,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomeComponent;

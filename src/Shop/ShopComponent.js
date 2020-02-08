@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import axios from 'axios';
-import ProductCard from '../containers/ProductCard';
-import Filter from '../containers/Filter';
+import Filter from '../Filter/FilterContainer';
 import Menu from '../Menu/MenuContainer';
-import Cards from '../containers/Cards';
-import Footer from './Footer';
-import { Card } from 'semantic-ui-react';
+import Cards from '../Cards/CardsContainer';
+import Footer from '../Footer/FooterComponent';
 
-class Shop extends Component {
+class ShopComponent extends Component {
   render() {
-    const { products, isReady } = this.props;
     return (
       <div>
         <div class="header__content">
@@ -32,4 +28,4 @@ class Shop extends Component {
   }
 }
 
-export default Shop;
+export default ShopComponent;

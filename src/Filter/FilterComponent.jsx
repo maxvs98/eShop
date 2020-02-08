@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Menu } from 'semantic-ui-react';
 
-const Filter = ({ setFilter, filterBy, searchQuery, setSearchQuery }) => (
+const FilterComponent = ({ setFilter, filterBy, searchQuery, setSearchQuery }) => (
   <Menu secondary>
     <Menu.Item
       active={filterBy === 'all'}
@@ -39,4 +39,4 @@ const Filter = ({ setFilter, filterBy, searchQuery, setSearchQuery }) => (
   </Menu>
 );
 
-export default Filter;
+export default FilterComponent;

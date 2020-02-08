@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Shop from './components/Shop';
-import Users from './components/Users';
-import Home from './components/Home';
-import LoginComp from './components/LoginComp';
-import PrivateRoute from './containers/PrivateRoute';
+import Shop from './Shop/ShopComponent';
+import Users from './Users/UsersComponent';
+import Home from './Home/HomeComponent';
+import LoginComponent from './Login/LoginComponent';
+import PrivateRoute from './PrivateRoute/PrivateRouteContainer';
 
 import {
   BrowserRouter as Router,
@@ -33,7 +33,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/shop" component={Shop}/>
-          <Route path="/login" component={LoginComp} />
+          <Route path="/login" component={LoginComponent} />
           <PrivateRoute path="/users" component={Users} />
         </Switch>
       </Router>

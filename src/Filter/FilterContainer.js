@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as filterActions from '../actions/filter';
-import Filter from '../components/Filter';
+import FilterComponent from './FilterComponent';
 
 const mapStateToProps = ({ products, filter }) => ({
   filterBy: filter.filterBy
@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => ({
    ...bindActionCreators(filterActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterComponent);

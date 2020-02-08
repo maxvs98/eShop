@@ -1,9 +1,13 @@
 export const addToCart = obj => ({
   type: 'ADD_TO_CART',
-  payload: obj
+  payload: {
+    obj: obj
+  }
 });
 
 export const removeFromCart = id => ({
   type: 'REMOVE_FROM_CART',
-  payload: id
+  payload: {
+    id: id
+  }
 });
