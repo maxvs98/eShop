@@ -66,38 +66,36 @@ const MenuComponent = ({
           </div>
         </div>
         <div className="col-md-2">
-          <a href="/">
-            <div className="cart clearfix">
-              <Popup
-                trigger={
-                  (
-                    <div>
-                      <div className="cart__icon" />
-                      <div className="cart__text">CART</div>
-                      <div className="cart__counter">{count}</div>
-                    </div>
-                  )
-                  }
-                header={
-                  (
-                    <p>
-                      {totalPrice}
-                      <Icon name="dollar sign" />
-                    </p>
+          <div className="cart clearfix">
+            <Popup
+              trigger={
+                (
+                  <div>
+                    <div className="cart__icon" />
+                    <div className="cart__text">CART</div>
+                    <div className="cart__counter">{count}</div>
+                  </div>
                 )
                 }
-                content={
-                  /* eslint-disable */
-                    items.map(product => <CartComponent {...product}/>)
-                  /* eslint-enable */
-                  }
-                on="click"
-                hideOnScroll
-                position="bottom center"
-                offset="0, 40px"
-              />
-            </div>
-          </a>
+              header={
+                (
+                  <p>
+                    {totalPrice}
+                    <Icon name="dollar sign" />
+                  </p>
+              )
+              }
+              content={
+                /* eslint-disable */
+                  items.map(product => <CartComponent {...product}/>)
+                /* eslint-enable */
+                }
+              on="click"
+              hideOnScroll
+              position="bottom center"
+              offset="0, 40px"
+            />
+          </div>
         </div>
         <div className="col-md-1 text-center">
           <div className="role__text">{role}</div>

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 class UserTableComponent extends Component {
   componentDidMount() {
-    const { setUsers } = this.props;
-    axios.get('/users.json').then(({ data }) => {
-      setUsers(data);
-    });
+    const { loadData } = this.props;
+    loadData();
   }
 
   render() {
@@ -46,7 +43,7 @@ UserTableComponent.propTypes = {
     }),
   ).isRequired,
   isReady: PropTypes.bool.isRequired,
-  setUsers: PropTypes.func.isRequired,
+  loadData: PropTypes.func.isRequired,
 };
 
 export default UserTableComponent;

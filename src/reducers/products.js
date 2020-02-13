@@ -19,6 +19,11 @@ export default (state = initialState, action) => {
           action.payload,
         ],
       };
+    case 'REMOVE_PRODUCT':
+      return {
+        ...state,
+        items: state.items.filter((o) => o.id !== action.payload.id),
+      };
     case 'SET_IS_READY':
       return {
         ...state,
