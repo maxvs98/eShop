@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as cartActions from '../actions/cart';
+import * as cartActions from '../../../../actions/cart';
 import ProductCardComponent from './ProductCardComponent';
 
 const mapStateToProps = ({ cart }, { id }) => ({

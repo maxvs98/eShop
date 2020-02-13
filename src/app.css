@@ -65,7 +65,7 @@ a {
   margin-top: 10px;
   width: 22px;
   height: 20px;
-  background: url("./Menu/img/cartIcon.png") no-repeat center;
+  background: url("./Components/Menu/img/cartIcon.png") no-repeat center;
 }
 
 .cart__text {
@@ -221,7 +221,7 @@ td {
   margin-top: 60px;
   width: 177px;
   height: 37px;
-  background: url("./Footer/img/logoFooter.png") no-repeat center;
+  background: url("./Components/Footer/img/logoFooter.png") no-repeat center;
 }
 
 .footer__menu {
@@ -251,7 +251,7 @@ td {
 .social__icon_facebook {
   width: 24px;
   height: 24px;
-  background: url("./Footer/img/FacebookIcon.png") no-repeat center;
+  background: url("./Components/Footer/img/FacebookIcon.png") no-repeat center;
   float: left;
 }
 
@@ -259,7 +259,7 @@ td {
   margin-left: 33px;
   width: 24px;
   height: 24px;
-  background: url("./Footer/img/TwitterIcon.png") no-repeat center;
+  background: url("./Components/Footer/img/TwitterIcon.png") no-repeat center;
   float: left;
 }
 
@@ -267,12 +267,12 @@ td {
   margin-left: 33px;
   width: 26px;
   height: 24px;
-  background: url("./Footer/img/G+Icon.png") no-repeat center;
+  background: url("./Components/Footer/img/G+Icon.png") no-repeat center;
   float: left;
 }
 
 #head {
-	background: url("./Home/img/background.png") no-repeat center center;
+	background: url("./Components/Home/img/background.png") no-repeat center center;
 	height: 680px;
   padding-top: 204px;
 }
@@ -338,21 +338,21 @@ td {
 	height: 78px;
 	width: 100px;
 	margin: 0px auto;
-	background: url("./Home/img/Hand.png") no-repeat center center;
+	background: url("./Components/Home/img/Hand.png") no-repeat center center;
 }
 
 .advantage__image_property {
 	height: 78px;
 	width: 100px;
 	margin: 0px auto;
-	background: url("./Home/img/EditProperty.png") no-repeat center center;
+	background: url("./Components/Home/img/EditProperty.png") no-repeat center center;
 }
 
 .advantage__image_conference {
 	height: 78px;
 	width: 100px;
 	margin: 0px auto;
-	background: url("./Home/img/Conference.png") no-repeat center center;
+	background: url("./Components/Home/img/Conference.png") no-repeat center center;
 }
 
 .advantage__title {

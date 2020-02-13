@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as authorizationActions from '../actions/authorization';
+import * as authorizationActions from '../../../actions/authorization';
 import AuthButtonComponent from './AuthButtonComponent';
 
 const mapStateToProps = ({ authorization }) => ({

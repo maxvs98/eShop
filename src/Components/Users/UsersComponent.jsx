@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Menu from '../Menu/MenuContainer';
-import UserTable from '../UserTable/UserTableContainer';
+import UserTable from './UserTable/UserTableContainer';
 import Footer from '../Footer/FooterComponent';
 
 const UsersComponent = () => (

@@ -5,7 +5,7 @@ import {
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logo from './img/logo.png';
-import AuthButton from '../AuthButton/AuthButtonContainer';
+import AuthButton from './AuthButton/AuthButtonContainer';
 
 const CartComponent = ({
   title, id, picture, removeFromCart,

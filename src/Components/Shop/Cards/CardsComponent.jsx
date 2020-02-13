@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import ProductCard from '../ProductCard/ProductCardContainer';
+import ProductCard from './ProductCard/ProductCardContainer';
 
 class CardsComponent extends Component {
   componentDidMount() {

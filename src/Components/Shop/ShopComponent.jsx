@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-import Filter from '../Filter/FilterContainer';
+import Filter from './Filter/FilterContainer';
 import Menu from '../Menu/MenuContainer';
-import Cards from '../Cards/CardsContainer';
+import Cards from './Cards/CardsContainer';
 import Footer from '../Footer/FooterComponent';
 
 const ShopComponent = () => (

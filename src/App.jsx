@@ -4,11 +4,11 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Shop from './Shop/ShopComponent';
-import Users from './Users/UsersComponent';
-import Home from './Home/HomeComponent';
-import LoginComponent from './Login/LoginComponent';
-import PrivateRoute from './PrivateRoute/PrivateRouteContainer';
+import Shop from './Components/Shop/ShopComponent';
+import Users from './Components/Users/UsersComponent';
+import Home from './Components/Home/HomeComponent';
+import LoginComponent from './Components/Login/LoginComponent';
+import PrivateRoute from './Components/PrivateRoute/PrivateRouteContainer';
 
 const App = () => (
   <Router>

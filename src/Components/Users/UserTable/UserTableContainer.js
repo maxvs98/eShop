@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as usersActions from '../actions/users';
+import * as usersActions from '../../../actions/users';
 import UserTableComponent from './UserTableComponent';
 
 const mapStateToProps = ({ users }) => ({
