@@ -4,6 +4,14 @@ body {
   background-color: #e4e5e7;
 }
 
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
 .header__content {
   height: 105px;
   background-color: white;
