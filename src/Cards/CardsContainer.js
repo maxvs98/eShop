@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import orderBy from 'lodash/orderBy';
 import * as productsActions from '../actions/products';
 import CardsComponent from './CardsComponent';
-import orderBy from 'lodash/orderBy';
 
 const sortBy = (products, filterBy) => {
   switch (filterBy) {
@@ -15,26 +15,24 @@ const sortBy = (products, filterBy) => {
   }
 };
 
-const filterProducts = (products, searchQuery) =>
-  products.filter(
-    o =>
-      o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
-      o.description.toLowerCase().indexOf(searchQuery.toLowerCase()) >=0
-  );
+const filterProducts = (products, searchQuery) => products.filter(
+  (o) => o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
+  || o.description.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0,
+);
 
-const searchProducts = (products, filterBy, searchQuery) => {
-  return sortBy(filterProducts(products, searchQuery), filterBy);
-}
+const searchProducts = (
+  products, filterBy, searchQuery,
+) => sortBy(filterProducts(products, searchQuery), filterBy);
 
 const mapStateToProps = ({ products, filter }) => ({
   products:
-    products.items &&
-    searchProducts(products.items, filter.filterBy, filter.searchQuery),
-  isReady: products.isReady
+    products.items
+    && searchProducts(products.items, filter.filterBy, filter.searchQuery),
+  isReady: products.isReady,
 });
 
-const mapDispatchToProps = dispatch => ({
-   ...bindActionCreators(productsActions, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators(productsActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardsComponent);

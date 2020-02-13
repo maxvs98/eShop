@@ -3,12 +3,12 @@ import { bindActionCreators } from 'redux';
 import * as filterActions from '../actions/filter';
 import FilterComponent from './FilterComponent';
 
-const mapStateToProps = ({ products, filter }) => ({
-  filterBy: filter.filterBy
+const mapStateToProps = ({ filter }) => ({
+  filterBy: filter.filterBy,
 });
 
-const mapDispatchToProps = dispatch => ({
-   ...bindActionCreators(filterActions, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators(filterActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterComponent);

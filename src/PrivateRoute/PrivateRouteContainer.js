@@ -5,11 +5,11 @@ import PrivateRouteComponent from './PrivateRouteComponent';
 
 const mapStateToProps = ({ authorization }) => ({
   role: authorization.role,
-  isAuth: authorization.isAuth
+  isAuth: authorization.isAuth,
 });
 
-const mapDispatchToProps = dispatch => ({
-   ...bindActionCreators(authorizationActions, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators(authorizationActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PrivateRouteComponent);

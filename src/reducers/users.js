@@ -1,6 +1,6 @@
 const initialState = {
   isReady: false,
-  items: null
+  items: null,
 };
 
 export default (state = initialState, action) => {
@@ -9,22 +9,22 @@ export default (state = initialState, action) => {
       return {
         ...state,
         items: action.payload.users,
-        isReady: true
+        isReady: true,
       };
     case 'ADD_USERS':
       return {
         ...state,
         items: [
           ...state.users,
-          action.payload
-        ]
+          action.payload,
+        ],
       };
     case 'SET_IS_READY':
       return {
         ...state,
-        isReady: action.payload
+        isReady: action.payload,
       };
     default:
       return state;
   }
-}
+};

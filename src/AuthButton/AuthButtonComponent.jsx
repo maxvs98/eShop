@@ -1,32 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class AuthButtonComponent extends Component {
-  render() {
-    const { isAuth, login, logout } = this.props;
-    return (
-      isAuth ? (
-        <p>
-          <button class="auth-button"
-            onClick={() => {
-              logout();//logout(() => history.push("/"));
-            }}
-          >
+const AuthButtonComponent = ({
+  isAuth, login, logout,
+}) => (
+  isAuth ? (
+    <p>
+      <button
+        type="button"
+        className="auth-button"
+        onClick={() => {
+          logout();
+        }}
+      >
             Sign out
-          </button>
-        </p>
-      ) : (
-        <p>
-          <button class="auth-button"
-            onClick={() => {
-              login("user");
-            }}
-          >
-            Sign in
-          </button>
-        </p>
-      )
-    );
-  }
-}
+      </button>
+    </p>
+  ) : (
+    <p>
+      <button
+        className="auth-button"
+        type="button"
+        onClick={() => {
+          login('user');
+        }}
+      >
+        Sign in
+      </button>
+    </p>
+  )
+);
+
+AuthButtonComponent.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+  login: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
+};
 
 export default AuthButtonComponent;

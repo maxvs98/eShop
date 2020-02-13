@@ -1,6 +1,14 @@
-export const setUsers = users => ({
+import axios from '../axiosInstance';
+
+export const setUsers = (users) => ({
   type: 'SET_USERS',
   payload: {
-    users: users
-  }
+    users,
+  },
 });
+
+export const loadData = () => (dispatch) => {
+  axios.get('/users.json').then(({ data }) => {
+    dispatch(setUsers(data));
+  });
+};

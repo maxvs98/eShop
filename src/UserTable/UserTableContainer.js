@@ -5,11 +5,11 @@ import UserTableComponent from './UserTableComponent';
 
 const mapStateToProps = ({ users }) => ({
   users: users.items,
-  isReady: users.isReady
+  isReady: users.isReady,
 });
 
-const mapDispatchToProps = dispatch => ({
-   ...bindActionCreators(usersActions, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators(usersActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserTableComponent);

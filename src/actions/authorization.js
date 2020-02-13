@@ -1,10 +1,10 @@
-export const login = role => ({
+export const login = (role) => ({
   type: 'LOGIN',
   payload: {
-    role: role
-  }
+    role,
+  },
 });
 
 export const logout = () => ({
-  type: 'LOGOUT'
+  type: 'LOGOUT',
 });

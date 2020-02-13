@@ -1,23 +1,23 @@
 const initialState = {
   isAuth: false,
-  role: "guest"
+  role: 'guest',
 };
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'LOGIN':
       return {
         ...state,
         role: action.payload.role,
-        isAuth: true
+        isAuth: true,
       };
     case 'LOGOUT':
       return {
         ...state,
-        role: "guest",
-        isAuth: false
+        role: 'guest',
+        isAuth: false,
       };
     default:
       return state;
   }
-}
+};

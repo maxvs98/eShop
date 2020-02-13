@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class UserTableComponent extends Component {
@@ -9,6 +9,7 @@ class UserTableComponent extends Component {
       setUsers(data);
     });
   }
+
   render() {
     const { users, isReady } = this.props;
     return (
@@ -19,19 +20,33 @@ class UserTableComponent extends Component {
           <th>Email</th>
           <th>Remove request</th>
         </tr>
-          {!isReady
-            ? 'загрузка'
-            : users.map((user, i) => (
-              <tr key={i}>
-                <td>{user['first name']}</td>
-                <td>{user['last name']}</td>
-                <td>{user['e-mail']}</td>
-                <td>{user['remove request']}</td>
-              </tr>
-            ))}
-       </table>
+        {!isReady
+          ? 'загрузка'
+          : users.map((user) => (
+            <tr>
+              <td>{user['first name']}</td>
+              <td>{user['last name']}</td>
+              <td>{user['e-mail']}</td>
+              <td>{user['remove request']}</td>
+            </tr>
+          ))}
+      </table>
     );
   }
 }
+
+UserTableComponent.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      'first name': PropTypes.string.isRequired,
+      'last name': PropTypes.string.isRequired,
+      'e-mail': PropTypes.string.isRequired,
+      'remove request': PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  isReady: PropTypes.bool.isRequired,
+  setUsers: PropTypes.func.isRequired,
+};
 
 export default UserTableComponent;
