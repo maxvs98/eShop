@@ -1,7 +1,7 @@
-export const login = (role) => ({
+export const login = (log) => ({
   type: 'LOGIN',
   payload: {
-    role,
+    log,
   },
 });
 

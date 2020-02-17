@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css';
-import './app.css';
+import './App/app.css';
 
-import App from './App';
+import App from './App/App';
 
-import createStore from './store';
+import createStore from './storage/store';
 
 const store = createStore();
 

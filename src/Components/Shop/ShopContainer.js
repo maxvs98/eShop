@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import orderBy from 'lodash/orderBy';
-import * as productsActions from '../../actions/products';
+import * as productsActions from '../../storage/actions/products';
 import ShopComponent from './ShopComponent';
 
 const sortBy = (products, filterBy) => {

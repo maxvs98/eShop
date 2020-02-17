@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const AuthButtonComponent = ({
-  isAuth, login, logout,
+  isAuth, logout,
 }) => (
   isAuth ? (
     <p>
@@ -18,22 +19,20 @@ const AuthButtonComponent = ({
     </p>
   ) : (
     <p>
-      <button
-        className="auth-button"
-        type="button"
-        onClick={() => {
-          login('user');
-        }}
-      >
-        Sign in
-      </button>
+      <Link to="/login">
+        <button
+          className="auth-button"
+          type="button"
+        >
+          Sign in
+        </button>
+      </Link>
     </p>
   )
 );
 
 AuthButtonComponent.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  login: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
 };
 

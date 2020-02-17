@@ -1,9 +1,16 @@
-import axios from '../axiosInstance';
+import axios from '../../axiosInstance';
 
 export const removeUser = (id) => ({
   type: 'REMOVE_USER',
   payload: {
     id,
+  },
+});
+
+export const addUser = (obj) => ({
+  type: 'ADD_USER',
+  payload: {
+    obj,
   },
 });
 

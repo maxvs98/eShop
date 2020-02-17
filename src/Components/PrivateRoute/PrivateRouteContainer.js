@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as authorizationActions from '../../actions/authorization';
+import * as authorizationActions from '../../storage/actions/authorization';
 import PrivateRouteComponent from './PrivateRouteComponent';
 
 const mapStateToProps = ({ authorization }) => ({

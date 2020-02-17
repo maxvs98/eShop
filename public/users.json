@@ -4,111 +4,127 @@
     "first name": "Maxim",
     "last name": "Vasilevskiy",
     "e-mail": "maksimvasilevskiy@mail.ru",
-    "remove request": "false"
+    "remove request": "false",
+    "role": "user",
   },
   {
     "id": 1,
     "first name": "Alexander",
     "last name": "Miranovich",
     "e-mail": "alexandermiranovich@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 2,
     "first name": "Vadim",
     "last name": "Sergeev",
     "e-mail": "vadimsergeev@mail.ru",
-    "remove request": "false"
+    "remove request": "false",
+    "role": "user",
   },
   {
     "id": 3,
     "first name": "Sharova",
     "last name": "Valeriya",
     "e-mail": "sharovavaleriya@mail.ru",
-    "remove request": "false"
+    "remove request": "false",
+    "role": "user",
   },
   {
     "id": 4,
     "first name": "Petr",
     "last name": "Ivanov",
     "e-mail": "petrivanov@mail.ru",
-    "remove request": "false"
+    "remove request": "false",
+    "role": "user",
   },
   {
     "id": 5,
     "first name": "Leonov",
     "last name": "Igor",
     "e-mail": "leonovigor@mail.ru",
-    "remove request": "false"
+    "remove request": "false",
+    "role": "user",
   },
   {
     "id": 6,
     "first name": "Alexander",
     "last name": "Nikitin",
     "e-mail": "alexandernikitin@mail.ru",
-    "remove request": "false"
+    "remove request": "false",
+    "role": "user",
   },
   {
     "id": 7,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 8,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 9,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 10,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 11,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 12,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 13,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 14,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   },
   {
     "id": 15,
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true"
+    "remove request": "true",
+    "role": "user",
   }
 ]

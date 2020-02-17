@@ -7,6 +7,9 @@ const ProductCardComponent = (product) => {
   const {
     title, description, price, picture, addToCart, addedCount, removeProduct, id,
   } = product;
+  const handlerAddToCart = () => {
+    addToCart(product);
+  };
   return (
     <Card>
       <Image src={picture} width="400" height="300" centered />
@@ -20,9 +23,9 @@ const ProductCardComponent = (product) => {
         <Icon name="dollar sign" />
         {price}
       </Card.Content>
-      {/* eslint-disable */}
-      <Button floated='left' onClick={addToCart.bind(this, product)} color="black">
-      {/* eslint-enable */}
+
+      <Button floated="left" onClick={handlerAddToCart} color="black">
+
         Добавить в корзину
         {addedCount > 0 && `(${addedCount})`}
       </Button>

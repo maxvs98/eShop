@@ -1,6 +1,10 @@
+// import { createActions, handleActions, combineActions } from 'redux-actions';
+
 const initialState = {
   isAuth: false,
-  role: 'guest',
+  id: null,
+  login: null,
+  role: null,
 };
 
 export default (state = initialState, action) => {
@@ -8,13 +12,13 @@ export default (state = initialState, action) => {
     case 'LOGIN':
       return {
         ...state,
-        role: action.payload.role,
+        login: action.payload.log,
         isAuth: true,
       };
     case 'LOGOUT':
       return {
         ...state,
-        role: 'guest',
+        login: null,
         isAuth: false,
       };
     default:

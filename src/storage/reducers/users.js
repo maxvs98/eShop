@@ -1,25 +1,27 @@
 const initialState = {
   isReady: false,
+  isLoaded: false,
   items: null,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_PRODUCTS':
+    case 'SET_USERS':
       return {
         ...state,
-        items: action.payload.products,
+        items: action.payload.users,
         isReady: true,
+        isLoaded: true,
       };
-    case 'ADD_PRODUCTS':
+    case 'ADD_USER':
       return {
         ...state,
         items: [
-          ...state.products,
-          action.payload,
+          ...state.items,
+          action.payload.obj,
         ],
       };
-    case 'REMOVE_PRODUCT':
+    case 'REMOVE_USER':
       return {
         ...state,
         items: state.items.filter((o) => o.id !== action.payload.id),

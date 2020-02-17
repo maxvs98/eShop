@@ -55,7 +55,7 @@ const HomeComponent = () => (
           </div>
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
             <div className="advantage">
-              <div className="advantage__image_confere" />
+              <div className="advantage__image_conference" />
               <div className="advantage__title">КОМПЕТЕНТНОСТЬ</div>
               <div className="advantage__text">
                 Наши специалисты с большим опытом работы помогут

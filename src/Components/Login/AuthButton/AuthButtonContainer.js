@@ -4,7 +4,6 @@ import * as authorizationActions from '../../../storage/actions/authorization';
 import AuthButtonComponent from './AuthButtonComponent';
 
 const mapStateToProps = ({ authorization }) => ({
-  role: authorization.role,
   isAuth: authorization.isAuth,
 });
 

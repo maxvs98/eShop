@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import orderBy from 'lodash/orderBy';
-import * as productsActions from '../../../actions/products';
+import * as productsActions from '../../../storage/actions/products';
 import CardsComponent from './CardsComponent';
 
 const sortBy = (products, filterBy) => {
@@ -29,6 +29,7 @@ const mapStateToProps = ({ products, filter }) => ({
     products.items
     && searchProducts(products.items, filter.filterBy, filter.searchQuery),
   isReady: products.isReady,
+  isLoaded: products.isLoaded,
 });
 
 const mapDispatchToProps = (dispatch) => ({

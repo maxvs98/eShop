@@ -6,8 +6,11 @@ import {
 
 class UserTableComponent extends Component {
   componentDidMount() {
-    const { loadData } = this.props;
-    loadData();
+    const { isLoaded } = this.props;
+    if (!isLoaded) {
+      const { loadData } = this.props;
+      loadData();
+    }
   }
 
   render() {
@@ -39,7 +42,7 @@ class UserTableComponent extends Component {
                     </Button>
                   </td>
                 )
-                : <td>false</td>}
+                : <td />}
             </tr>
           ))}
       </table>
@@ -58,6 +61,7 @@ UserTableComponent.propTypes = {
     }),
   ).isRequired,
   isReady: PropTypes.bool.isRequired,
+  isLoaded: PropTypes.bool.isRequired,
   loadData: PropTypes.func.isRequired,
   removeUser: PropTypes.func.isRequired,
 };

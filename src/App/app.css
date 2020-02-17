@@ -73,7 +73,7 @@ a {
   margin-top: 10px;
   width: 22px;
   height: 20px;
-  background: url("./Components/Menu/img/cartIcon.png") no-repeat center;
+  background: url("../Components/Menu/img/cartIcon.png") no-repeat center;
 }
 
 .cart__text {
@@ -119,7 +119,6 @@ a {
   border-radius: 16px;
   background-color: #ffffff;
   border: 2px solid #e3e8f0;
-
 }
 
 .auth-button {
@@ -133,6 +132,7 @@ a {
   background-color: #ffffff;
   border: 2px solid #e3e8f0;
   outline: 0 !important;
+  margin-top: -15px;
 }
 
 .auth-button:hover {
@@ -233,7 +233,7 @@ td {
   margin-top: 60px;
   width: 177px;
   height: 37px;
-  background: url("./Components/Footer/img/logoFooter.png") no-repeat center;
+  background: url("../Components/Footer/img/logoFooter.png") no-repeat center;
 }
 
 .footer__menu {
@@ -263,7 +263,7 @@ td {
 .social__icon_facebook {
   width: 24px;
   height: 24px;
-  background: url("./Components/Footer/img/FacebookIcon.png") no-repeat center;
+  background: url("../Components/Footer/img/FacebookIcon.png") no-repeat center;
   float: left;
 }
 
@@ -271,7 +271,7 @@ td {
   margin-left: 33px;
   width: 24px;
   height: 24px;
-  background: url("./Components/Footer/img/TwitterIcon.png") no-repeat center;
+  background: url("../Components/Footer/img/TwitterIcon.png") no-repeat center;
   float: left;
 }
 
@@ -279,12 +279,12 @@ td {
   margin-left: 33px;
   width: 26px;
   height: 24px;
-  background: url("./Components/Footer/img/G+Icon.png") no-repeat center;
+  background: url("../Components/Footer/img/G+Icon.png") no-repeat center;
   float: left;
 }
 
 #head {
-	background: url("./Components/Home/img/background.png") no-repeat center center;
+	background: url("../Components/Home/img/background.png") no-repeat center center;
 	height: 680px;
   padding-top: 204px;
 }
@@ -350,21 +350,21 @@ td {
 	height: 78px;
 	width: 100px;
 	margin: 0px auto;
-	background: url("./Components/Home/img/Hand.png") no-repeat center center;
+	background: url("../Components/Home/img/Hand.png") no-repeat center center;
 }
 
 .advantage__image_property {
 	height: 78px;
 	width: 100px;
 	margin: 0px auto;
-	background: url("./Components/Home/img/EditProperty.png") no-repeat center center;
+	background: url("../Components/Home/img/EditProperty.png") no-repeat center center;
 }
 
 .advantage__image_conference {
 	height: 78px;
 	width: 100px;
 	margin: 0px auto;
-	background: url("./Components/Home/img/Conference.png") no-repeat center center;
+	background: url("../Components/Home/img/Conference.png") no-repeat center center;
 }
 
 .advantage__title {
@@ -395,4 +395,170 @@ td {
 	color: black;
 	font-family: "Montserrat";
 	text-align: center;
+}
+
+#login {
+	height: 731px;
+	background: url("../Components/Login/img/blackBackground.png") no-repeat center center;
+}
+
+.form__title {
+	font-size: 42px;
+	letter-spacing: 4px;
+	line-height: 49px;
+	color: rgb(255,255,255);
+	font-family: "Montserrat";
+	text-align: center;
+	text-transform: uppercase;
+	width: 714px;
+	margin: 0px auto;
+	margin-top: 71px;
+}
+
+.form__subtitle {
+	font-size: 20px;
+	letter-spacing: 3px;
+	line-height: 25px;
+	color: rgb(255,255,255);
+	font-family: "Montserrat";
+	text-align: center;
+	text-transform: uppercase;
+	width: 313px;
+	margin: 0px auto;
+	margin-top: 21px;
+}
+
+.form__link {
+	font-size: 15px;
+	letter-spacing: 3px;
+	line-height: 25px;
+	color: rgb(255,255,255);
+	font-family: "Montserrat";
+	text-align: center;
+	text-transform: uppercase;
+	width: 313px;
+	margin: 0px auto;
+	margin-top: 21px;
+}
+
+.form__link:hover {
+	color: black;
+}
+
+.form__arrow {
+	padding-top: 5px;
+	padding-left: 2px;
+	font-size: 15px;
+	width: 33px;
+	height: 33px;
+	border-radius: 16px;
+	background-color: #black;
+	border: 1px solid #ffffff;
+	border-style: dashed;
+	margin: 0px auto;
+	margin-top: 31px;
+	color: white;
+}
+
+.loginForm__input {
+	margin: 0px auto;
+  margin-bottom: 9px;
+	width: 370px;
+	height: 67px;
+	border-radius: 3px;
+	background-color: black;
+	border: 1px solid #ffffff;
+	padding-left: 35px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	color: white;
+	font-family: "Montserrat";
+	display: block;
+}
+
+.loginForm__input::placeholder {
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	color: white;
+	font-family: "Montserrat";
+	text-transform: uppercase;
+	opacity: 50%;
+}
+
+.loginForm__input:focus {
+	width: 370px;
+	height: 67px;
+	border-radius: 3px;
+	background-color: black;
+	border: 1px solid #ffffff;
+	padding-left: 35px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	color: white;
+	font-family: "Montserrat";
+	box-shadow: 0 0 35px rgba(14,14,14,0.3);
+	margin: 0px auto;
+	display: block;
+	margin-top: 9px;
+	margin-bottom: 9px;
+}
+
+.loginForm__input_act::placeholder {
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	color: white;
+	font-family: "Montserrat";
+	text-transform: uppercase;
+}
+
+.loginForm {
+	margin-top: 30px;
+}
+
+.loginForm__btn {
+	width: 369px;
+	height: 70px;
+	display: block;
+	margin: 0px auto;
+	margin-top: 20px;
+	border-radius: 4px;
+	border: 2px solid #ffffff;
+	background-color: rgba(0,0,0,0);
+	font-size: 15px;
+	letter-spacing: 2px;
+	line-height: 35px;
+	color: rgb(255,255,255);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.loginForm__btn:hover {
+	background-color: white;
+	color: black;
+}
+
+.regForm__btn {
+	width: 369px;
+	height: 70px;
+	display: block;
+	margin: 0px auto;
+	margin-top: 60px;
+	border-radius: 4px;
+	border: 2px solid #ffffff;
+	background-color: rgba(0,0,0,0);
+	font-size: 15px;
+	letter-spacing: 2px;
+	line-height: 35px;
+	color: rgb(255,255,255);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.regForm__btn:hover {
+	background-color: white;
+	color: black;
 }

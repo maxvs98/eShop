@@ -5,8 +5,11 @@ import ProductCard from './ProductCard/ProductCardContainer';
 
 class CardsComponent extends Component {
   componentDidMount() {
-    const { loadData } = this.props;
-    loadData();
+    const { isLoaded } = this.props;
+    if (!isLoaded) {
+      const { loadData } = this.props;
+      loadData();
+    }
   }
 
   render() {
@@ -33,6 +36,7 @@ CardsComponent.propTypes = {
   loadData: PropTypes.func.isRequired,
   products: PropTypes.shape.isRequired,
   isReady: PropTypes.bool.isRequired,
+  isLoaded: PropTypes.bool.isRequired,
 };
 
 export default CardsComponent;
