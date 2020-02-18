@@ -15,11 +15,7 @@ class RegistrationComponent extends Component {
       surname: '',
       email: '',
     };
-    this.handleChangeLogin = this.handleChangeLogin.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangeSurname = this.handleChangeSurname.bind(this);
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -30,24 +26,13 @@ class RegistrationComponent extends Component {
     }
   }
 
-  handleChangeLogin(event) {
-    this.setState({ login: event.target.value });
-  }
-
-  handleChangePassword(event) {
-    this.setState({ password: event.target.value });
-  }
-
-  handleChangeName(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  handleChangeSurname(event) {
-    this.setState({ surname: event.target.value });
-  }
-
-  handleChangeEmail(event) {
-    this.setState({ email: event.target.value });
+  handleChange(event) {
+    const { target } = event;
+    const { value } = target;
+    const { name } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -82,29 +67,29 @@ class RegistrationComponent extends Component {
                       type="text"
                       className="loginForm__input"
                       placeholder="login"
+                      name="login"
                       required
                       /* eslint-disable */
                       value={this.state.value}
                       /* eslint-enable */
-                      onChange={this.handleChangeLogin}
+                      onChange={this.handleChange}
                     />
                     <input
                       type="password"
                       className="loginForm__input"
                       placeholder="password"
+                      name="password"
                       required
                       /* eslint-disable */
                       value={this.state.value}
                       /* eslint-enable */
-                      onChange={this.handleChangePassword}
+                      onChange={this.handleChange}
                     />
                     <input
                       type="password"
-                      name="pass"
                       className="loginForm__input"
                       placeholder="confirm password"
                       required
-                      id="pass"
                     />
                   </form>
                 </div>
@@ -119,31 +104,34 @@ class RegistrationComponent extends Component {
                       type="text"
                       className="loginForm__input"
                       placeholder="first name"
+                      name="name"
                       required
                       /* eslint-disable */
                       value={this.state.value}
                       /* eslint-enable */
-                      onChange={this.handleChangeName}
+                      onChange={this.handleChange}
                     />
                     <input
                       type="text"
                       className="loginForm__input"
                       placeholder="last name"
+                      name="surname"
                       required
                       /* eslint-disable */
                       value={this.state.value}
                       /* eslint-enable */
-                      onChange={this.handleChangeSurname}
+                      onChange={this.handleChange}
                     />
                     <input
                       type="text"
                       className="loginForm__input"
                       placeholder="email"
+                      name="email"
                       required
                       /* eslint-disable */
                       value={this.state.value}
                       /* eslint-enable */
-                      onChange={this.handleChangeEmail}
+                      onChange={this.handleChange}
                     />
                   </form>
                 </div>

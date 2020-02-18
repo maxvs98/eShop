@@ -5,7 +5,9 @@
     "last name": "Vasilevskiy",
     "e-mail": "maksimvasilevskiy@mail.ru",
     "remove request": "false",
-    "role": "user",
+    "login": "maxim123",
+    "password": "maxim123",
+    "role": "admin"
   },
   {
     "id": 1,
@@ -13,7 +15,9 @@
     "last name": "Miranovich",
     "e-mail": "alexandermiranovich@mail.ru",
     "remove request": "true",
-    "role": "user",
+    "login": "alex123",
+    "password": "alex123",
+    "role": "user"
   },
   {
     "id": 2,
@@ -21,15 +25,19 @@
     "last name": "Sergeev",
     "e-mail": "vadimsergeev@mail.ru",
     "remove request": "false",
-    "role": "user",
+    "login": "vadim123",
+    "password": "vadim123",
+    "role": "user"
   },
   {
     "id": 3,
-    "first name": "Sharova",
-    "last name": "Valeriya",
+    "first name": "Valeriya",
+    "last name": "Sharova",
     "e-mail": "sharovavaleriya@mail.ru",
     "remove request": "false",
-    "role": "user",
+    "login": "lera123",
+    "password": "lera123",
+    "role": "user"
   },
   {
     "id": 4,
@@ -37,15 +45,19 @@
     "last name": "Ivanov",
     "e-mail": "petrivanov@mail.ru",
     "remove request": "false",
-    "role": "user",
+    "login": "petya123",
+    "password": "petya132",
+    "role": "user"
   },
   {
     "id": 5,
-    "first name": "Leonov",
-    "last name": "Igor",
+    "first name": "Igor",
+    "last name": "Leonov",
     "e-mail": "leonovigor@mail.ru",
     "remove request": "false",
-    "role": "user",
+    "login": "igor123",
+    "password": "igor123",
+    "role": "user"
   },
   {
     "id": 6,
@@ -53,7 +65,9 @@
     "last name": "Nikitin",
     "e-mail": "alexandernikitin@mail.ru",
     "remove request": "false",
-    "role": "user",
+    "login": "alex456",
+    "password": "alex456",
+    "role": "user"
   },
   {
     "id": 7,
@@ -61,70 +75,8 @@
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
     "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 8,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 9,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 10,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 11,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 12,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 13,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 14,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
-  },
-  {
-    "id": 15,
-    "first name": "Alexandra",
-    "last name": "Suslova",
-    "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
-    "role": "user",
+    "login": "raf123",
+    "password": "raf123",
+    "role": "user"
   }
 ]

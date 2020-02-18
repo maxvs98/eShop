@@ -10,6 +10,7 @@ const mapStateToProps = ({ cart, authorization }) => ({
   count: cart.items.length,
   items: uniqBy(cart.items, (o) => o.id),
   log: authorization.login,
+  role: authorization.role,
 });
 
 const mapDispatchToProps = (dispatch) => ({

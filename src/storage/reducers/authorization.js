@@ -12,13 +12,17 @@ export default (state = initialState, action) => {
     case 'LOGIN':
       return {
         ...state,
+        id: action.payload.id,
         login: action.payload.log,
+        role: action.payload.role,
         isAuth: true,
       };
     case 'LOGOUT':
       return {
         ...state,
+        id: null,
         login: null,
+        role: null,
         isAuth: false,
       };
     default:

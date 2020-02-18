@@ -31,7 +31,7 @@ CartComponent.propTypes = {
 };
 
 const MenuComponent = ({
-  totalPrice, count, items, log,
+  totalPrice, count, items, log, role,
 }) => (
   <div>
     <div className="container">
@@ -58,11 +58,16 @@ const MenuComponent = ({
                 Show goods
               </div>
             </Link>
-            <Link to="/users">
-              <div className="menu__item">
-                Users
-              </div>
-            </Link>
+            {role === 'admin'
+              ? (
+                <Link to="/users">
+                  <div className="menu__item">
+                    Users
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
           </div>
         </div>
         <div className="col-md-2">
@@ -111,6 +116,7 @@ MenuComponent.propTypes = {
   count: PropTypes.number.isRequired,
   items: PropTypes.shape.isRequired,
   log: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
 };
 
 export default MenuComponent;

@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Footer from '../Footer/FooterComponent';
 import Menu from '../Menu/MenuContainer';
-import AuthButton from './AuthButton/AuthButtonContainer';
 
 class LoginComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      log: '',
+      password: '',
+    };
+    this.handleChangeLog = this.handleChangeLog.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
   }
 
   componentDidMount() {
@@ -21,15 +24,29 @@ class LoginComponent extends Component {
     }
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChangeLog(event) {
+    this.setState({ log: event.target.value });
+  }
+
+  handleChangePassword(event) {
+    this.setState({ password: event.target.value });
   }
 
   render() {
     const {
-      users, isReady,
+      users, login, isAuth,
     } = this.props;
-    return (
+    const { log, password } = this.state;
+    const handlerAuthorize = () => {
+      users.map((user) => {
+        if (user.login === log && user.password === password) login(user.id, log, user.role);
+        return (user);
+      });
+    };
+
+    return isAuth ? (
+      <Redirect to="/" />
+    ) : (
       <div>
         <div className="header__content">
           <Menu />
@@ -51,27 +68,31 @@ class LoginComponent extends Component {
                   <form className="loginForm">
                     <input
                       type="text"
-                      name="name"
                       className="loginForm__input"
                       placeholder="login"
                       required
-                      id="log"
                       /* eslint-disable */
                       value={this.state.value}
                       /* eslint-enable */
-                      onChange={this.handleChange}
+                      onChange={this.handleChangeLog}
                     />
                     <input
                       type="password"
-                      name="pass"
                       className="loginForm__input"
                       placeholder="password"
                       required
-                      id="pass"
+                      /* eslint-disable */
+                      value={this.state.value}
+                      /* eslint-enable */
+                      onChange={this.handleChangePassword}
                     />
-                    {/* eslint-disable */}
-                    <AuthButton log={this.state.value} users={users} isReady={isReady} />
-                    {/* eslint-enable */}
+                    <button
+                      className="loginForm__btn"
+                      type="submit"
+                      onClick={handlerAuthorize}
+                    >
+                      ok
+                    </button>
                   </form>
                   <Link to="/registration">
                     <div className="form__link">
@@ -93,7 +114,8 @@ LoginComponent.propTypes = {
   isLoaded: PropTypes.bool.isRequired,
   loadData: PropTypes.func.isRequired,
   users: PropTypes.shape.isRequired,
-  isReady: PropTypes.shape.isRequired,
+  login: PropTypes.func.isRequired,
+  isAuth: PropTypes.func.isRequired,
 };
 
 export default LoginComponent;

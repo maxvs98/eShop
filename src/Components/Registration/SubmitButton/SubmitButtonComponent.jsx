@@ -16,7 +16,7 @@ const SubmitButtonComponent = ({
   };
   const handlerAddUser = () => {
     addUser(user);
-    login('user');
+    login(user.id, user.login, user.role);
   };
   return (
     <p>
