@@ -7,6 +7,13 @@ export const removeProduct = (id) => ({
   },
 });
 
+export const addProduct = (obj) => ({
+  type: 'ADD_PRODUCT',
+  payload: {
+    obj,
+  },
+});
+
 export const setProducts = (products) => ({
   type: 'SET_PRODUCTS',
   payload: {

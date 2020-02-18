@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Card } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import ProductCard from './ProductCard/ProductCardContainer';
+import Modal from '../Modal/ModalContainer';
 
 class CardsComponent extends Component {
   componentDidMount() {
@@ -13,10 +14,19 @@ class CardsComponent extends Component {
   }
 
   render() {
-    const { products, isReady } = this.props;
+    const { products, isReady, role } = this.props;
     return (
-      <div className="cards__content">
-        <Container>
+      <div>
+        {role !== 'admin'
+          ? ''
+          : (
+            <Modal
+              onReceive={this.onReceiveState}
+              buttonLabel="ADD PRODUCT"
+              products={products}
+            />
+          )}
+        <div className="cards__content">
           <Card.Group itemsPerRow={4}>
             {!isReady
               ? 'загрузка'
@@ -26,7 +36,7 @@ class CardsComponent extends Component {
                 /* eslint-enable */
               ))}
           </Card.Group>
-        </Container>
+        </div>
       </div>
     );
   }
@@ -37,6 +47,7 @@ CardsComponent.propTypes = {
   products: PropTypes.shape.isRequired,
   isReady: PropTypes.bool.isRequired,
   isLoaded: PropTypes.bool.isRequired,
+  role: PropTypes.string.isRequired,
 };
 
 export default CardsComponent;

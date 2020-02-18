@@ -13,12 +13,12 @@ export default (state = initialState, action) => {
         isReady: true,
         isLoaded: true,
       };
-    case 'ADD_PRODUCTS':
+    case 'ADD_PRODUCT':
       return {
         ...state,
         items: [
-          ...state.products,
-          action.payload,
+          ...state.items,
+          action.payload.obj,
         ],
       };
     case 'REMOVE_PRODUCT':

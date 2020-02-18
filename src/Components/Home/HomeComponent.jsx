@@ -59,7 +59,98 @@ const HomeComponent = () => (
               <div className="advantage__title">КОМПЕТЕНТНОСТЬ</div>
               <div className="advantage__text">
                 Наши специалисты с большим опытом работы помогут
-                разобраться во всех юридических тонкостях
+                разобраться во всех тонкостях
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div className="container-fluid">
+      <div className="devider" />
+    </div>
+    <section className="about clearfix">
+      <div className="container clearfix">
+        <div className="about-header">
+          о нас
+        </div>
+        <div className="background">
+          <div className="about__title">
+            бэкграунд
+          </div>
+          <div className="background__content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis.
+          </div>
+          <div className="background__content">
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.
+          </div>
+          <div className="background__content">
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa quiis aute irure dolor
+            in reprehenderit in is aute irure dolor in reprehenderit in is aute irure dolor in
+            reprehenderit in.
+          </div>
+        </div>
+        <div className="right-block">
+          <div className="merit clearfix">
+            <div className="about__title">
+              Заслуги
+            </div>
+            <div className="rhombuses clearfix">
+              <div className="rhombuses__item">
+                <div className="rhombus">
+                  75
+                </div>
+                <div className="signature">
+                  Реализованных проектов
+                </div>
+              </div>
+              <div className="rhombuses__item">
+                <div className="rhombus">
+                  154
+                </div>
+                <div className="signature">
+                  Положительных отзыва
+                </div>
+              </div>
+              <div className="rhombuses__item">
+                <div className="rhombus">
+                  8
+                </div>
+                <div className="signature">
+                  Лет
+                  <br />
+                  опыта
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="contact clearfix">
+            <div className="about__title">
+              Связь
+            </div>
+            <div className="contact__items">
+              <div className="contact__item">
+                skype.com/myname
+              </div>
+              <div className="contact__item">
+                vk.com/12343
+              </div>
+              <div className="contact__item">
+                info@sitename.ru
+              </div>
+            </div>
+            <div className="contact__block">
+              <div className="contact__img" />
+              <div className="contact__subscript">
+                Не стесняйтесь, пишите
               </div>
             </div>
           </div>
