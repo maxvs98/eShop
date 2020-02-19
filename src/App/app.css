@@ -202,15 +202,16 @@ a {
   background-color: white;
   padding-top: 50px;
   padding-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
 }
 
 .main-content__table table {
   margin: 0px auto;
-}
-
-.main-content {
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 th {
@@ -735,4 +736,52 @@ td {
   color: #cfd8dc;
   cursor: pointer;
   transition: all 0.3s;
+}
+
+.main-content__userData {
+  width: 500px;
+  margin: 0px auto;
+}
+
+.main-content__title {
+  text-align: center;
+  color: #22241b;
+	font-family: "Montserrat";
+	font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.main-content {
+  height: 500px;
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-top: 25px;
+}
+
+.ui.black.button, .ui.black.buttons .button {
+    width: 180px;
+    text-shadow: none;
+    background-image: none;
+}
+
+.ui.input {
+  margin-top: 15px;
+}
+
+.btn-link, .btn-link:hover {
+  color: black;
+}
+
+.btn-primary {
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: black;
+  border-color: black;
 }

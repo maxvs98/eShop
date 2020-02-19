@@ -6,13 +6,13 @@ import {
 } from 'react-router-dom';
 
 const PrivateRouteComponent = ({
-  isAuth, role, component: Comp, ...rest
+  isAuth, role, requiredRole, component: Comp, ...rest
 }) => (
   <Route
   /* eslint-disable */
     {...rest}
   /* eslint-enable */
-    render={(props) => (role === 'admin' ? (
+    render={(props) => ((isAuth && (requiredRole == null || role === requiredRole)) ? (
       /* eslint-disable */
       <Comp {...props} />
       /* eslint-enable */
@@ -29,6 +29,7 @@ PrivateRouteComponent.propTypes = {
   location: PropTypes.string.isRequired,
   component: PropTypes.shape.isRequired,
   role: PropTypes.string.isRequired,
+  requiredRole: PropTypes.string.isRequired,
 };
 
 export default PrivateRouteComponent;

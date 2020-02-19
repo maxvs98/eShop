@@ -14,7 +14,7 @@ const CartComponent = ({
     <List.Item>
       <List.Content floated="right">
         {/* eslint-disable */}
-        <Button onClick={removeFromCart.bind(this,id)} color="red">Удалить</Button>
+        <Button onClick={removeFromCart.bind(this,id)} color="white">Удалить</Button>
         {/* eslint-enable */}
       </List.Content>
       <Image avatar src={picture} />
@@ -63,6 +63,16 @@ const MenuComponent = ({
                 <Link to="/users">
                   <div className="menu__item">
                     Users
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+            {role !== null
+              ? (
+                <Link to="/account">
+                  <div className="menu__item">
+                    Account
                   </div>
                 </Link>
               ) : (
