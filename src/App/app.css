@@ -725,3 +725,14 @@ td {
 	margin-top: 3px;
 	margin-left: 20px;
 }
+
+.product__rating {
+  float: right;
+}
+
+.Star {
+  font-size: 2em;
+  color: #cfd8dc;
+  cursor: pointer;
+  transition: all 0.3s;
+}

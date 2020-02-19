@@ -5,7 +5,8 @@
     "description": "black",
     "price": 3.99,
     "picture": "https://cdn.myshoptet.com/usr/www.tulshop.cz/user/shop/category_portrait/62_black-t-shirt-man-english.png?5d52d5c8",
-    "tags": "good"
+    "tags": "good",
+    "mark" : 5
   },
   {
     "id": 1,
@@ -13,7 +14,8 @@
     "description": "white",
     "price": 954.99,
     "picture": "https://cdn-images.farfetch-contents.com/12/14/71/57/12147157_10105325_1000.jpg",
-    "tags": "good"
+    "tags": "good",
+    "mark" : 10
   },
   {
     "id": 2,
@@ -21,7 +23,8 @@
     "description": "black",
     "price": 335.99,
     "picture": "https://cdn-images.farfetch-contents.com/12/65/75/44/12657544_12272154_1000.jpg",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 3,
@@ -29,7 +32,8 @@
     "description": "black",
     "price": 627.99,
     "picture": "https://cdn-images.farfetch-contents.com/13/81/34/07/13813407_20024327_1000.jpg",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 4,
@@ -37,7 +41,8 @@
     "description": "white",
     "price": 159.99,
     "picture": "https://cdn-images.farfetch-contents.com/14/35/20/83/14352083_22272301_1000.jpg",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 5,
@@ -45,7 +50,8 @@
     "description": "black",
     "price": 36.99,
     "picture": "https://cdn.shopify.com/s/files/1/0030/5253/5857/products/golfed-wang-sk-90th-tyler-the-creator-ofwgkta-skate-frank-ocean-t-shirt-casual-men-t-shirt-black-l-7_900x.jpg?v=1576171762",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 6,
@@ -53,7 +59,8 @@
     "description": "black",
     "price": 71.99,
     "picture": "https://ae01.alicdn.com/kf/HTB1QB0cLpXXXXb1XVXXq6xXFXXXe/MTS130-3D.jpg_640x640.jpg",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 7,
@@ -61,7 +68,8 @@
     "description": "black",
     "price": 75.99,
     "picture": "https://cdn.shopify.com/s/files/1/0030/5253/5857/products/xxxtentacion-kanye-west-season-6-men-11-high-quality-hold-the-gate-t-shirts-tees-short-sleeve-t-shirt-1-s-6@2x.jpg?v=1571980158",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 8,
@@ -69,7 +77,8 @@
     "description": "white",
     "price": 67.99,
     "picture": "https://cdn.shopify.com/s/files/1/0030/5253/5857/products/men-2pac-print-t-shirts-hip-hop-swag-king-tupac-amaru-shakur-cotton-tee-shirts-makaveli-design-tops-tee-euro-sizegmt007-blue-a-s-7_900x.jpg?v=1571971766",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   },
   {
     "id": 9,
@@ -77,6 +86,7 @@
     "description": "red",
     "price": 100.99,
     "picture": "https://www.redthreads.org/wp-content/uploads/2019/04/kill-your-landlord-t-shirt-red.jpg",
-    "tags": "good"
+    "tags": "good",
+    "mark" : null
   }
 ]

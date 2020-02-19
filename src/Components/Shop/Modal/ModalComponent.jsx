@@ -45,6 +45,7 @@ class ModalComponent extends React.Component {
       price,
       picture,
       tags: null,
+      rating: null,
     };
     const handlerAddProduct = () => {
       const { addProduct } = this.props;
