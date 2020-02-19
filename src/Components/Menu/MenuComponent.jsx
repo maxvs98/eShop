@@ -48,16 +48,26 @@ const MenuComponent = ({
         </div>
         <div className="col-md-5">
           <div className="menu clearfix">
-            <Link to="/">
-              <div className="menu__item">
-                Home
-              </div>
-            </Link>
-            <Link to="/shop">
-              <div className="menu__item">
-                Show goods
-              </div>
-            </Link>
+            {role !== null
+              ? (
+                <Link to="/">
+                  <div className="menu__item">
+                    Home
+                  </div>
+                </Link>
+              ) : (
+                ''
+              )}
+            {role !== null
+              ? (
+                <Link to="/shop">
+                  <div className="menu__item">
+                    Show goods
+                  </div>
+                </Link>
+              ) : (
+                ''
+              )}
             {role === 'admin'
               ? (
                 <Link to="/users">
@@ -76,7 +86,7 @@ const MenuComponent = ({
                   </div>
                 </Link>
               ) : (
-                <div />
+                ''
               )}
           </div>
         </div>
