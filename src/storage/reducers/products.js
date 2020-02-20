@@ -1,37 +1,28 @@
+import { handleActions } from 'redux-actions';
+import { removeProduct, addProduct, setProducts } from '../actions/products';
+
 const initialState = {
   isReady: false,
   isLoaded: false,
   items: null,
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case 'SET_PRODUCTS':
-      return {
-        ...state,
-        items: action.payload.products,
-        isReady: true,
-        isLoaded: true,
-      };
-    case 'ADD_PRODUCT':
-      return {
-        ...state,
-        items: [
-          ...state.items,
-          action.payload.obj,
-        ],
-      };
-    case 'REMOVE_PRODUCT':
-      return {
-        ...state,
-        items: state.items.filter((o) => o.id !== action.payload.id),
-      };
-    case 'SET_IS_READY':
-      return {
-        ...state,
-        isReady: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+export default handleActions({
+  [removeProduct]: (state, action) => ({
+    ...state,
+    items: state.items.filter((o) => o.id !== action.payload.id),
+  }),
+  [addProduct]: (state, action) => ({
+    ...state,
+    items: [
+      ...state.items,
+      action.payload.obj,
+    ],
+  }),
+  [setProducts]: (state, action) => ({
+    ...state,
+    items: action.payload.products,
+    isReady: true,
+    isLoaded: true,
+  }),
+}, initialState);

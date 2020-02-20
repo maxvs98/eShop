@@ -1,13 +1,9 @@
-export const addToCart = (obj) => ({
-  type: 'ADD_TO_CART',
-  payload: {
-    obj,
-  },
-});
+import { createAction } from 'redux-actions';
 
-export const removeFromCart = (id) => ({
-  type: 'REMOVE_FROM_CART',
-  payload: {
-    id,
-  },
-});
+export const addToCart = createAction('ADD_TO_CART', (obj) => ({
+  obj,
+}));
+
+export const removeFromCart = createAction('REMOVE_FROM_CART', (id) => ({
+  id,
+}));

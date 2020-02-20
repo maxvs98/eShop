@@ -1,25 +1,17 @@
+import { createAction } from 'redux-actions';
 import axios from '../../axiosInstance';
 
-export const removeProduct = (id) => ({
-  type: 'REMOVE_PRODUCT',
-  payload: {
-    id,
-  },
-});
+export const removeProduct = createAction('REMOVE_PRODUCT', (id) => ({
+  id,
+}));
 
-export const addProduct = (obj) => ({
-  type: 'ADD_PRODUCT',
-  payload: {
-    obj,
-  },
-});
+export const addProduct = createAction('ADD_PRODUCT', (obj) => ({
+  obj,
+}));
 
-export const setProducts = (products) => ({
-  type: 'SET_PRODUCTS',
-  payload: {
-    products,
-  },
-});
+export const setProducts = createAction('SET_PRODUCTS', (products) => ({
+  products,
+}));
 
 export const loadData = () => (dispatch) => {
   axios.get('/products.json').then(({ data }) => {

@@ -31,6 +31,15 @@ class Rating extends Component {
     addMark(product, newValue);
   }
 
+  handleDelete() {
+    const { addMark, product } = this.props;
+    this.setState({
+      value: 0,
+      dynamicValue: 0,
+    });
+    addMark(product, 0);
+  }
+
   handleMouseEnter(newValue) {
     this.setState({ dynamicValue: newValue });
   }
@@ -59,6 +68,7 @@ class Rating extends Component {
           handleHover={this.handleMouseEnter}
           handleHoverLeave={this.handleMouseLeave}
           handleClick={this.handleClick}
+          handleDelete={this.handleDelete}
         />,
       );
     }

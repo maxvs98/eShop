@@ -1,13 +1,9 @@
-export const addMark = (obj) => ({
-  type: 'ADD_MARK',
-  payload: {
-    obj,
-  },
-});
+import { createAction } from 'redux-actions';
 
-export const removeMark = (id) => ({
-  type: 'REMOVE_MARK',
-  payload: {
-    id,
-  },
-});
+export const addMark = createAction('ADD_MARK', (obj) => ({
+  obj,
+}));
+
+export const removeMark = createAction('REMOVE_MARK', (id) => ({
+  id,
+}));

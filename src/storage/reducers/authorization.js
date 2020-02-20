@@ -1,4 +1,5 @@
-// import { createActions, handleActions, combineActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
+import { login, logout } from '../actions/authorization';
 
 const initialState = {
   isAuth: false,
@@ -7,25 +8,19 @@ const initialState = {
   role: null,
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case 'LOGIN':
-      return {
-        ...state,
-        id: action.payload.id,
-        login: action.payload.log,
-        role: action.payload.role,
-        isAuth: true,
-      };
-    case 'LOGOUT':
-      return {
-        ...state,
-        id: null,
-        login: null,
-        role: null,
-        isAuth: false,
-      };
-    default:
-      return state;
-  }
-};
+export default handleActions({
+  [login]: (state, action) => ({
+    ...state,
+    id: action.payload.id,
+    login: action.payload.log,
+    role: action.payload.role,
+    isAuth: true,
+  }),
+  [logout]: (state) => ({
+    ...state,
+    id: null,
+    login: null,
+    role: null,
+    isAuth: false,
+  }),
+}, initialState);

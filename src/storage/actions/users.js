@@ -1,25 +1,17 @@
+import { createAction } from 'redux-actions';
 import axios from '../../axiosInstance';
 
-export const removeUser = (id) => ({
-  type: 'REMOVE_USER',
-  payload: {
-    id,
-  },
-});
+export const removeUser = createAction('REMOVE_USER', (id) => ({
+  id,
+}));
 
-export const addUser = (obj) => ({
-  type: 'ADD_USER',
-  payload: {
-    obj,
-  },
-});
+export const addUser = createAction('ADD_USER', (obj) => ({
+  obj,
+}));
 
-export const setUsers = (users) => ({
-  type: 'SET_USERS',
-  payload: {
-    users,
-  },
-});
+export const setUsers = createAction('SET_USERS', (users) => ({
+  users,
+}));
 
 export const loadData = () => (dispatch) => {
   axios.get('/users.json').then(({ data }) => {

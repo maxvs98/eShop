@@ -1,13 +1,9 @@
-export const setFilter = (filter) => ({
-  type: 'SET_FILTER',
-  payload: {
-    filter,
-  },
-});
+import { createAction } from 'redux-actions';
 
-export const setSearchQuery = (value) => ({
-  type: 'SET_QUERY',
-  payload: {
-    value,
-  },
-});
+export const setFilter = createAction('SET_FILTER', (filter) => ({
+  filter,
+}));
+
+export const setSearchQuery = createAction('SET_QUERY', (value) => ({
+  value,
+}));

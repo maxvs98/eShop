@@ -1,23 +1,20 @@
+import { handleActions } from 'redux-actions';
+import { addMark, removeMark } from '../actions/rating';
+
 const initialState = {
   items: [],
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case 'ADD_MARK':
-      return {
-        ...state,
-        items: [
-          ...state.items,
-          action.payload.obj,
-        ],
-      };
-    case 'REMOVE_MARK':
-      return {
-        ...state,
-        items: state.items.filter((o) => o.id !== action.payload.id),
-      };
-    default:
-      return state;
-  }
-};
+export default handleActions({
+  [addMark]: (state, action) => ({
+    ...state,
+    items: [
+      ...state.items,
+      action.payload.obj,
+    ],
+  }),
+  [removeMark]: (state, action) => ({
+    ...state,
+    items: state.items.filter((o) => o.id !== action.payload.id),
+  }),
+}, initialState);

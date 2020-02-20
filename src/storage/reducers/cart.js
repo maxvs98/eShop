@@ -1,23 +1,20 @@
+import { handleActions } from 'redux-actions';
+import { addToCart, removeFromCart } from '../actions/cart';
+
 const initialState = {
   items: [],
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case 'ADD_TO_CART':
-      return {
-        ...state,
-        items: [
-          ...state.items,
-          action.payload.obj,
-        ],
-      };
-    case 'REMOVE_FROM_CART':
-      return {
-        ...state,
-        items: state.items.filter((o) => o.id !== action.payload.id),
-      };
-    default:
-      return state;
-  }
-};
+export default handleActions({
+  [addToCart]: (state, action) => ({
+    ...state,
+    items: [
+      ...state.items,
+      action.payload.obj,
+    ],
+  }),
+  [removeFromCart]: (state, action) => ({
+    ...state,
+    items: state.items.filter((o) => o.id !== action.payload.id),
+  }),
+}, initialState);

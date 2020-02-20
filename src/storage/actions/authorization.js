@@ -1,12 +1,10 @@
-export const login = (id, log, role) => ({
-  type: 'LOGIN',
-  payload: {
-    id,
-    log,
-    role,
-  },
-});
+import { createAction } from 'redux-actions';
 
-export const logout = () => ({
-  type: 'LOGOUT',
-});
+export const login = createAction('LOGIN', (id, log, role) => ({
+  id,
+  log,
+  role,
+}));
+
+export const logout = createAction('LOGOUT', () => ({
+}));
