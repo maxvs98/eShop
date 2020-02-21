@@ -10,7 +10,7 @@ const SubmitButtonComponent = ({
     'first name': name,
     'last name': surname,
     'e-mail': email,
-    'remove request': 'false',
+    'remove request': false,
     login: log,
     password,
     role: 'user',

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-  Container, Input, Form,
+  Container, Input, Form, Checkbox,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import Menu from '../Menu/MenuContainer';
 import Footer from '../Footer/FooterComponent';
 import SubmitButton from './SubmitButton/SubmitButtonContainer';
-
+/* eslint-disable */
 class AccountPageComponent extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,7 @@ class AccountPageComponent extends Component {
       role: user.role,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleToggleChange = this.handleToggleChange.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +39,12 @@ class AccountPageComponent extends Component {
     const { name } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleToggleChange() {
+    this.setState({
+      ['removeRequest']: !this.state['removeRequest'],
     });
   }
 
@@ -107,19 +114,6 @@ class AccountPageComponent extends Component {
                         color: 'black',
                         labelPosition: 'left',
                         icon: 'circle outline',
-                        content: 'remove request',
-                      }}
-                      name="removeRequest"
-                      actionPosition="left"
-                      placeholder="remove request"
-                      defaultValue={user['remove request']}
-                      onChange={this.handleChange}
-                    />
-                    <Input
-                      action={{
-                        color: 'black',
-                        labelPosition: 'left',
-                        icon: 'circle outline',
                         content: 'login',
                       }}
                       name="login"
@@ -154,6 +148,17 @@ class AccountPageComponent extends Component {
                       placeholder="role"
                       value={user.role}
                     />
+                    <div className="d-flex justify-content-center userPage__button">
+                      <Checkbox
+                        label="remove request"
+                        toggle
+                        name="removeRequest"
+                        actionPosition="left"
+                        placeholder="remove request"
+                        onClick={this.handleToggleChange}
+                        checked={this.state.removeRequest}
+                      />
+                    </div>
                     <SubmitButton
                       id={id}
                       login={login}

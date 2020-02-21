@@ -790,3 +790,13 @@ td {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+
+.modal {
+  position: relative!important;
+  width: 80%;
+  margin-top: 400px;
+}
+
+.modals.dimmer .ui.scrolling.modal {
+    margin: 17rem auto;
+}

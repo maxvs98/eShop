@@ -36,7 +36,7 @@ class UserTableComponent extends Component {
               <td>{user['last name']}</td>
               <td>{user['e-mail']}</td>
               <td>{user.role}</td>
-              {user['remove request'] === 'true'
+              {user['remove request'] === true
                 ? (
                   <td>
                     {/* eslint-disable */}

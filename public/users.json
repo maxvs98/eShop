@@ -4,7 +4,7 @@
     "first name": "Maxim",
     "last name": "Vasilevskiy",
     "e-mail": "maksimvasilevskiy@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "maxim123",
     "password": "maxim123",
     "role": "admin"
@@ -14,7 +14,7 @@
     "first name": "Alexander",
     "last name": "Miranovich",
     "e-mail": "alexandermiranovich@mail.ru",
-    "remove request": "true",
+    "remove request": true,
     "login": "alex123",
     "password": "alex123",
     "role": "user"
@@ -24,7 +24,7 @@
     "first name": "Vadim",
     "last name": "Sergeev",
     "e-mail": "vadimsergeev@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "vadim123",
     "password": "vadim123",
     "role": "user"
@@ -34,7 +34,7 @@
     "first name": "Valeriya",
     "last name": "Sharova",
     "e-mail": "sharovavaleriya@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "lera123",
     "password": "lera123",
     "role": "user"
@@ -44,7 +44,7 @@
     "first name": "Petr",
     "last name": "Ivanov",
     "e-mail": "petrivanov@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "petya123",
     "password": "petya132",
     "role": "user"
@@ -54,7 +54,7 @@
     "first name": "Igor",
     "last name": "Leonov",
     "e-mail": "leonovigor@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "igor123",
     "password": "igor123",
     "role": "user"
@@ -64,7 +64,7 @@
     "first name": "Alexander",
     "last name": "Nikitin",
     "e-mail": "alexandernikitin@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "alex456",
     "password": "alex456",
     "role": "user"
@@ -74,7 +74,7 @@
     "first name": "Alexandra",
     "last name": "Suslova",
     "e-mail": "alexandrasuslova@mail.ru",
-    "remove request": "true",
+    "remove request": true,
     "login": "raf123",
     "password": "raf123",
     "role": "user"
@@ -84,7 +84,7 @@
     "first name": "Roman",
     "last name": "Dorenskiy",
     "e-mail": "dorenskiy.Rom4ik@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "roman123",
     "password": "roman123",
     "role": "user"
@@ -94,7 +94,7 @@
     "first name": "Veronika",
     "last name": "Bazyanova",
     "e-mail": "beautya@rambler.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "veronika456",
     "password": "veronika456",
     "role": "user"
@@ -104,7 +104,7 @@
     "first name": "Maxim",
     "last name": "Trifonov",
     "e-mail": "trim7@ru.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "maxim456",
     "password": "maxim456",
     "role": "user"
@@ -114,7 +114,7 @@
     "first name": "Mihail",
     "last name": "Gurtovoi",
     "e-mail": "admiral17@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "mihail456",
     "password": "mihail456",
     "role": "user"
@@ -124,7 +124,7 @@
     "first name": "Olesya",
     "last name": "Gahovskaya",
     "e-mail": "real-dv@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "olesya456",
     "password": "olesya456",
     "role": "user"
@@ -134,7 +134,7 @@
     "first name": "Andrey",
     "last name": "Shtern",
     "e-mail": "stern@spb.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "andrey456",
     "password": "andrey456",
     "role": "user"
@@ -144,7 +144,7 @@
     "first name": "Vladimir",
     "last name": "Zeydin",
     "e-mail": "ya-zews@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "vladimir456",
     "password": "vladimir456",
     "role": "user"
@@ -154,7 +154,7 @@
     "first name": "Ruslan",
     "last name": "Aliyev",
     "e-mail": "aliev_rusik@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "ruslan456",
     "password": "ruslan456",
     "role": "user"
@@ -164,7 +164,7 @@
     "first name": "Anna",
     "last name": "Zimina",
     "e-mail": "kropal.85@mail.ru",
-    "remove request": "false",
+    "remove request": false,
     "login": "anna456",
     "password": "anna456",
     "role": "user"
