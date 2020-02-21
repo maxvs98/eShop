@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const AuthButtonComponent = ({
-  isAuth, logout,
+  isAuth, logout, clearCart,
 }) => (
   isAuth ? (
     <p>
@@ -13,6 +13,7 @@ const AuthButtonComponent = ({
           className="auth-button"
           onClick={() => {
             logout();
+            clearCart();
           }}
         >
               Sign out
@@ -36,6 +37,7 @@ const AuthButtonComponent = ({
 AuthButtonComponent.propTypes = {
   isAuth: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
+  clearCart: PropTypes.func.isRequired,
 };
 
 export default AuthButtonComponent;
