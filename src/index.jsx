@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css';
-import './App/app.css';
+import './App/app.min.css';
 
 import App from './App/App';
 
