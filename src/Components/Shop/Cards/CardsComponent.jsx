@@ -30,10 +30,8 @@ class CardsComponent extends Component {
           <Card.Group itemsPerRow={4}>
             {!isReady
               ? 'загрузка'
-              : products.map((product, i) => (
-                /* eslint-disable */
-                <ProductCard key={i} {...product} />
-                /* eslint-enable */
+              : products.map((product) => (
+                <ProductCard product={product} />
               ))}
           </Card.Group>
         </div>

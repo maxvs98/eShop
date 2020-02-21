@@ -41,6 +41,7 @@ class SubmitButtonComponent extends Component {
     return (
       <div className="d-flex justify-content-center userPage__button">
         <Modal
+          className="userPage__modal"
           trigger={(
             <Button
               type="submit"
@@ -52,7 +53,6 @@ class SubmitButtonComponent extends Component {
           )}
           open={modalOpen}
           onClose={this.handleClose}
-          basic
           size="small"
         >
           <Header icon="browser" content="info" />
@@ -60,7 +60,7 @@ class SubmitButtonComponent extends Component {
             <h3>Data was succesfully saved</h3>
           </Modal.Content>
           <Modal.Actions>
-            <Button color="green" onClick={this.handleClose} inverted>
+            <Button color="black" onClick={this.handleClose}>
               <Icon name="checkmark" />
               ok
             </Button>

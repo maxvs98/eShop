@@ -7,15 +7,17 @@ const AuthButtonComponent = ({
 }) => (
   isAuth ? (
     <p>
-      <button
-        type="button"
-        className="auth-button"
-        onClick={() => {
-          logout();
-        }}
-      >
-            Sign out
-      </button>
+      <Link to="/login">
+        <button
+          type="button"
+          className="auth-button"
+          onClick={() => {
+            logout();
+          }}
+        >
+              Sign out
+        </button>
+      </Link>
     </p>
   ) : (
     <p>
