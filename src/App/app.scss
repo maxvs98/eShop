@@ -801,3 +801,12 @@ td {
 .modals.dimmer .ui.scrolling.modal {
     margin: 17rem auto;
 }
+
+.table__button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.table__icon:hover {
+  cursor: pointer;
+}

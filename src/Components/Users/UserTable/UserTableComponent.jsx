@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button,
+  Icon,
 } from 'semantic-ui-react';
 
 class UserTableComponent extends Component {
@@ -38,12 +38,10 @@ class UserTableComponent extends Component {
               <td>{user.role}</td>
               {user['remove request'] === true
                 ? (
-                  <td>
+                  <td className="table__button">
                     {/* eslint-disable */}
-                    <Button compact color="black" size="tiny" onClick={removeUser.bind(this,user['id'])}>
+                    <Icon className="table__icon" circular name="delete" color="black" onClick={removeUser.bind(this,user['id'])} />
                     {/* eslint-enable */}
-                      Удалить
-                    </Button>
                   </td>
                 )
                 : <td />}

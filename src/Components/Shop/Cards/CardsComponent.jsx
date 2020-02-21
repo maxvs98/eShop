@@ -31,7 +31,9 @@ class CardsComponent extends Component {
             {!isReady
               ? 'загрузка'
               : products.map((product) => (
-                <ProductCard product={product} />
+                /* eslint-disable */
+                <ProductCard {...product} />
+                /* eslint-enable */
               ))}
           </Card.Group>
         </div>
