@@ -1,6 +1,10 @@
 import { createAction } from 'redux-actions';
 import axios from '../../axiosInstance';
 
+export const getUser = createAction('GET_USER', (id) => ({
+  id,
+}));
+
 export const removeUser = createAction('REMOVE_USER', (id) => ({
   id,
 }));

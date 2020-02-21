@@ -20,18 +20,22 @@ class UserTableComponent extends Component {
     return (
       <table>
         <tr>
+          <th>Id</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
+          <th>Role</th>
           <th>Remove request</th>
         </tr>
         {!isReady
           ? 'загрузка'
           : users.map((user) => (
             <tr>
+              <td>{user.id}</td>
               <td>{user['first name']}</td>
               <td>{user['last name']}</td>
               <td>{user['e-mail']}</td>
+              <td>{user.role}</td>
               {user['remove request'] === 'true'
                 ? (
                   <td>

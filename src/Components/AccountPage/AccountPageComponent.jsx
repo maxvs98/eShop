@@ -15,8 +15,9 @@ class AccountPageComponent extends Component {
 
   render() {
     const {
-      users, isReady, id,
+      users, isReady,
     } = this.props;
+    const user = users[0];
     return (
       <div>
         <div className="header__content">
@@ -41,7 +42,7 @@ class AccountPageComponent extends Component {
                       }}
                       actionPosition="left"
                       placeholder="first name"
-                      defaultValue={users[id]['first name']}
+                      defaultValue={user['first name']}
                     />
                     <Input
                       action={{
@@ -52,7 +53,7 @@ class AccountPageComponent extends Component {
                       }}
                       actionPosition="left"
                       placeholder="last name"
-                      defaultValue={users[id]['last name']}
+                      defaultValue={user['last name']}
                     />
                     <Input
                       action={{
@@ -63,7 +64,7 @@ class AccountPageComponent extends Component {
                       }}
                       actionPosition="left"
                       placeholder="e-mail"
-                      defaultValue={users[id]['e-mail']}
+                      defaultValue={user['e-mail']}
                     />
                     <Input
                       action={{
@@ -74,7 +75,7 @@ class AccountPageComponent extends Component {
                       }}
                       actionPosition="left"
                       placeholder="remove request"
-                      defaultValue={users[id]['remove request']}
+                      defaultValue={user['remove request']}
                     />
                     <Input
                       action={{
@@ -85,7 +86,7 @@ class AccountPageComponent extends Component {
                       }}
                       actionPosition="left"
                       placeholder="login"
-                      defaultValue={users[id].login}
+                      defaultValue={user.login}
                     />
                     <Input
                       action={{
@@ -96,7 +97,7 @@ class AccountPageComponent extends Component {
                       }}
                       actionPosition="left"
                       placeholder="role"
-                      defaultValue={users[id].role}
+                      defaultValue={user.role}
                     />
                   </Form>
                 )}
@@ -110,12 +111,10 @@ class AccountPageComponent extends Component {
 }
 
 AccountPageComponent.propTypes = {
-  role: PropTypes.string.isRequired,
   users: PropTypes.shape.isRequired,
   isLoaded: PropTypes.bool.isRequired,
   isReady: PropTypes.bool.isRequired,
   loadData: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
 };
 
 export default AccountPageComponent;

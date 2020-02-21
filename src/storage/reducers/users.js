@@ -1,5 +1,8 @@
+/* eslint-disable */
 import { handleActions } from 'redux-actions';
-import { removeUser, addUser, setUsers } from '../actions/users';
+import {
+  removeUser, addUser, setUsers, getUser,
+} from '../actions/users';
 
 const initialState = {
   isReady: false,
@@ -8,6 +11,10 @@ const initialState = {
 };
 
 export default handleActions({
+  [getUser]: (state, action) => ({
+    ...state,
+    items: state.items.filter((o) => o.id === action.payload.id),
+  }),
   [removeUser]: (state, action) => ({
     ...state,
     items: state.items.filter((o) => o.id !== action.payload.id),

@@ -7,12 +7,13 @@ const SubmitButtonComponent = ({
 }) => {
   const user = {
     id: Math.floor(Math.random() * (200 - 20)) + 200,
-    login: log,
-    password,
     'first name': name,
     'last name': surname,
     'e-mail': email,
     'remove request': 'false',
+    login: log,
+    password,
+    role: 'user',
   };
   const handlerAddUser = () => {
     addUser(user);
