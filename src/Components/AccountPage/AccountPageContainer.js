@@ -4,12 +4,10 @@ import * as usersActions from '../../storage/actions/users';
 import * as authorizationActions from '../../storage/actions/authorization';
 import AccountPageComponent from './AccountPageComponent';
 
-const searchUser = (users, id) => users.filter(
-  (o) => o.id === id,
-);
+const searchUser = (users, id) => users.find((obj) => obj.id === id);
 
 const mapStateToProps = ({ users, authorization }) => ({
-  users: searchUser(users.items, authorization.id),
+  user: searchUser(users.items, authorization.id),
   isReady: users.isReady,
   isLoaded: users.isLoaded,
   isAuth: authorization.isAuth,

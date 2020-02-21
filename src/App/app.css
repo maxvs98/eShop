@@ -752,7 +752,7 @@ td {
 }
 
 .main-content {
-  height: 500px;
+  height: 550px;
   background-color: white;
   border-radius: 15px;
   margin-top: 25px;
@@ -784,4 +784,9 @@ td {
   color: white;
   background-color: black;
   border-color: black;
+}
+
+.userPage__button {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }

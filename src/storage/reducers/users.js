@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { handleActions } from 'redux-actions';
 import {
-  removeUser, addUser, setUsers, getUser,
+  removeUser, addUser, setUsers, getUser, changeUser,
 } from '../actions/users';
 
 const initialState = {
@@ -11,6 +11,15 @@ const initialState = {
 };
 
 export default handleActions({
+  [changeUser]: (state, action) => ({
+    ...state,
+    items: state.items.map(o => {
+      if (o.id === action.payload.id) {
+        return action.payload.obj;
+      }
+      return o;
+    }),
+  }),
   [getUser]: (state, action) => ({
     ...state,
     items: state.items.filter((o) => o.id === action.payload.id),
