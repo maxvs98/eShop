@@ -1,5 +1,7 @@
 import { handleActions } from 'redux-actions';
-import { removeProduct, addProduct, setProducts } from '../actions/products';
+import {
+  removeProduct, addProduct, setProducts, changeProduct,
+} from '../actions/products';
 
 const initialState = {
   isReady: false,
@@ -8,6 +10,15 @@ const initialState = {
 };
 
 export default handleActions({
+  [changeProduct]: (state, action) => ({
+    ...state,
+    items: state.items.map((o) => {
+      if (o.id === action.payload.id) {
+        return action.payload.obj;
+      }
+      return o;
+    }),
+  }),
   [removeProduct]: (state, action) => ({
     ...state,
     items: state.items.filter((o) => o.id !== action.payload.id),

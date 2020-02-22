@@ -50,7 +50,7 @@ class AccountPageComponent extends Component {
 
   render() {
     const {
-      user, isReady,
+      isReady,
     } = this.props;
     const {
       id, login, password, name, surname, email, removeRequest, role,
@@ -80,7 +80,7 @@ class AccountPageComponent extends Component {
                       name="name"
                       actionPosition="left"
                       placeholder="first name"
-                      defaultValue={user['first name']}
+                      defaultValue={name}
                       onChange={this.handleChange}
                     />
                     <Input
@@ -93,7 +93,7 @@ class AccountPageComponent extends Component {
                       name="surname"
                       actionPosition="left"
                       placeholder="last name"
-                      defaultValue={user['last name']}
+                      defaultValue={surname}
                       onChange={this.handleChange}
                     />
                     <Input
@@ -106,7 +106,7 @@ class AccountPageComponent extends Component {
                       name="email"
                       actionPosition="left"
                       placeholder="e-mail"
-                      defaultValue={user['e-mail']}
+                      defaultValue={email}
                       onChange={this.handleChange}
                     />
                     <Input
@@ -119,7 +119,7 @@ class AccountPageComponent extends Component {
                       name="login"
                       actionPosition="left"
                       placeholder="login"
-                      defaultValue={user.login}
+                      defaultValue={login}
                       onChange={this.handleChange}
                     />
                     <Input
@@ -133,7 +133,7 @@ class AccountPageComponent extends Component {
                       actionPosition="left"
                       placeholder="password"
                       type="password"
-                      defaultValue={user.password}
+                      defaultValue={password}
                       onChange={this.handleChange}
                     />
                     <Input
@@ -146,7 +146,7 @@ class AccountPageComponent extends Component {
                       name="role"
                       actionPosition="left"
                       placeholder="role"
-                      value={user.role}
+                      value={role}
                     />
                     <div className="d-flex justify-content-center userPage__button">
                       <Checkbox

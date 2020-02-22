@@ -3,6 +3,7 @@ import {
   Card, Image, Icon, Button,
 } from 'semantic-ui-react';
 import Rating from './Rating/RatingContainer';
+import Modal from './Modal/ModalContainer';
 
 const ProductCardComponent = (product) => {
   const {
@@ -12,7 +13,6 @@ const ProductCardComponent = (product) => {
     picture,
     addToCart,
     addedCount,
-    removeProduct,
     id,
     productRating,
     role,
@@ -21,12 +21,18 @@ const ProductCardComponent = (product) => {
   const handlerAddToCart = () => {
     addToCart(product);
   };
-  const handlerRemoveProduct = () => {
-    removeProduct(id);
-  };
 
   return (
     <Card>
+      {role !== 'admin'
+        ? ''
+        : (
+          <Modal
+            /* onReceive={this.onReceiveState} */
+            product={product}
+            id={id}
+          />
+        )}
       <Image src={picture} width="400" height="300" centered />
       <Card.Content>
         <Card.Header>{title}</Card.Header>
@@ -45,11 +51,6 @@ const ProductCardComponent = (product) => {
         Добавить в корзину
         {addedCount > 0 && `(${addedCount})`}
       </Button>
-      {role !== 'admin'
-        ? ''
-        : (
-          <Button floated="right" color="grey" size="tiny" onClick={handlerRemoveProduct}>Удалить</Button>
-        )}
     </Card>
   );
 };

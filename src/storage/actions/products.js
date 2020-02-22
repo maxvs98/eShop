@@ -1,6 +1,11 @@
 import { createAction } from 'redux-actions';
 import axios from '../../axiosInstance';
 
+export const changeProduct = createAction('CHANGE_PRODUCT', (id, obj) => ({
+  id,
+  obj,
+}));
+
 export const removeProduct = createAction('REMOVE_PRODUCT', (id) => ({
   id,
 }));
