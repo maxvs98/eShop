@@ -13,16 +13,17 @@ class ModalComponent extends React.Component {
     super(props);
     const { product } = this.props;
     this.state = {
+      idState: product.id,
       titleState: product.title,
       descriptionState: product.description,
       priceState: product.price,
       pictureState: product.picture,
+      markState: product.mark,
       modal: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggle = this.toggle.bind(this);
     this.handlerRemoveProduct = this.handlerRemoveProduct.bind(this);
-    this.handleRenewState = this.handleRenewState.bind(this);
   }
 
   toggle() {
@@ -31,10 +32,12 @@ class ModalComponent extends React.Component {
     }));
     const { product } = this.props;
     this.setState({
+      idState: product.id,
       titleState: product.title,
       descriptionState: product.description,
       priceState: product.price,
       pictureState: product.picture,
+      markState: product.mark,
     });
   }
 
@@ -54,16 +57,6 @@ class ModalComponent extends React.Component {
     removeProduct(id);
   }
 
-  handleRenewState() {
-    const { product } = this.props;
-    this.state = {
-      titleState: product.title,
-      descriptionState: product.description,
-      priceState: product.price,
-      pictureState: product.picture,
-    };
-  }
-
   render() {
     const {
       modal,
@@ -72,6 +65,7 @@ class ModalComponent extends React.Component {
       descriptionState,
       priceState,
       pictureState,
+      markState,
     } = this.state;
     const {
       className,
@@ -152,12 +146,12 @@ class ModalComponent extends React.Component {
             >
             {/* eslint-enable */}
               <SubmitButton
-                onClick={this.toggle}
                 id={idState}
                 title={titleState}
                 description={descriptionState}
                 price={priceState}
                 picture={pictureState}
+                mark={markState}
               />
             </a>
           </ModalFooter>

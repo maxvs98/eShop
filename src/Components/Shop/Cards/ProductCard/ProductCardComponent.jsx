@@ -14,8 +14,8 @@ const ProductCardComponent = (product) => {
     picture,
     addToCart,
     addedCount,
-    productRating,
     role,
+    mark,
   } = product;
 
   const handlerAddToCart = () => {
@@ -44,7 +44,7 @@ const ProductCardComponent = (product) => {
         <Icon name="dollar sign" />
         {price}
         <p className="product__rating">
-          <Rating stars={productRating} product={product} />
+          <Rating stars={mark} product={product} />
         </p>
       </Card.Content>
       <Button floated="left" onClick={handlerAddToCart} color="black">

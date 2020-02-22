@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Statistic } from 'semantic-ui-react';
 import Star from './Star/StarComponent';
 
 class Rating extends Component {
@@ -23,11 +24,14 @@ class Rating extends Component {
   }
 
   handleClick(newValue) {
-    const { addMark, product } = this.props;
+    const { addMark, product, changeProduct } = this.props;
     this.setState({
       value: newValue,
       dynamicValue: newValue,
     });
+    const newProduct = product;
+    newProduct.mark.push(newValue);
+    changeProduct(product.id, product);
     addMark(product, newValue);
   }
 
@@ -50,6 +54,8 @@ class Rating extends Component {
   }
 
   render() {
+    const { product } = this.props;
+    const { mark } = product;
     const { dynamicValue } = this.state;
     const starSpans = [];
     let count = 0;
@@ -75,12 +81,19 @@ class Rating extends Component {
     return (
       <div>
         {starSpans}
+        <Statistic size="tiny">
+          <Statistic.Value>
+            {mark.length
+              ? (mark.reduce((sum, current) => sum + current, 0) / mark.length).toFixed(1) : '0.0'}
+          </Statistic.Value>
+        </Statistic>
       </div>
     );
   }
 }
 
 Rating.propTypes = {
+  changeProduct: PropTypes.shape.isRequired,
   product: PropTypes.shape.isRequired,
   addMark: PropTypes.func.isRequired,
   stars: PropTypes.number.isRequired,

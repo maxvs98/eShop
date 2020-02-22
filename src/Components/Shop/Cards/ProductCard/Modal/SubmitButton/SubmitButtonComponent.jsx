@@ -18,6 +18,7 @@ class SubmitButtonComponent extends Component {
       price,
       picture,
       changeProduct,
+      mark,
     } = this.props;
     const product = {
       id,
@@ -26,7 +27,7 @@ class SubmitButtonComponent extends Component {
       price,
       picture,
       tags: null,
-      mark: null,
+      mark,
     };
     changeProduct(id, product);
   }
@@ -47,6 +48,7 @@ SubmitButtonComponent.propTypes = {
   price: PropTypes.number.isRequired,
   picture: PropTypes.string.isRequired,
   changeProduct: PropTypes.func.isRequired,
+  mark: PropTypes.shape.isRequired,
 };
 
 export default SubmitButtonComponent;
