@@ -13,21 +13,29 @@ class ModalComponent extends React.Component {
     super(props);
     const { product } = this.props;
     this.state = {
-      id: product.id,
-      title: product.title,
-      description: product.description,
-      price: product.price,
-      picture: product.picture,
+      titleState: product.title,
+      descriptionState: product.description,
+      priceState: product.price,
+      pictureState: product.picture,
       modal: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.handlerRemoveProduct = this.handlerRemoveProduct.bind(this);
+    this.handleRenewState = this.handleRenewState.bind(this);
   }
 
   toggle() {
     this.setState((prevState) => ({
       modal: !prevState.modal,
     }));
+    const { product } = this.props;
+    this.setState({
+      titleState: product.title,
+      descriptionState: product.description,
+      priceState: product.price,
+      pictureState: product.picture,
+    });
   }
 
   handleChange(event) {
@@ -39,36 +47,36 @@ class ModalComponent extends React.Component {
     });
   }
 
+  handlerRemoveProduct() {
+    const {
+      removeProduct, id,
+    } = this.props;
+    removeProduct(id);
+  }
+
+  handleRenewState() {
+    const { product } = this.props;
+    this.state = {
+      titleState: product.title,
+      descriptionState: product.description,
+      priceState: product.price,
+      pictureState: product.picture,
+    };
+  }
+
   render() {
     const {
-      removeProduct,
-    } = this.props;
-    const {
-      id,
-      title,
-      description,
-      price,
-      picture,
       modal,
+      idState,
+      titleState,
+      descriptionState,
+      priceState,
+      pictureState,
     } = this.state;
-    const { className } = this.props;
-    /* const product = {
-      id,
-      title,
-      description,
-      price,
-      picture,
-      tags: null,
-      rating: null,
-    }; */
-    /* const handlerChangeProduct = () => {
-      const { changeProduct } = this.props;
-      changeProduct(id, product);
-      this.toggle();
-    }; */
-    const handlerRemoveProduct = () => {
-      removeProduct(id);
-    };
+    const {
+      className,
+    } = this.props;
+
     return (
       <div>
         <div className="product__buttons">
@@ -86,7 +94,7 @@ class ModalComponent extends React.Component {
               floated="right"
               color="grey"
               size="small"
-              onClick={handlerRemoveProduct}
+              onClick={() => this.handlerRemoveProduct()}
               basic
             />
           </Button.Group>
@@ -102,37 +110,37 @@ class ModalComponent extends React.Component {
               <FormGroup>
                 <Input
                   type="text"
-                  name="title"
+                  name="titleState"
                   placeholder="title"
                   onChange={this.handleChange}
-                  defaultValue={title}
+                  defaultValue={titleState}
                 />
               </FormGroup>
               <FormGroup>
                 <Input
                   type="text"
-                  name="description"
+                  name="descriptionState"
                   placeholder="description"
                   onChange={this.handleChange}
-                  defaultValue={description}
+                  defaultValue={descriptionState}
                 />
               </FormGroup>
               <FormGroup>
                 <Input
                   type="text"
-                  name="price"
+                  name="priceState"
                   placeholder="price"
                   onChange={this.handleChange}
-                  defaultValue={price}
+                  defaultValue={priceState}
                 />
               </FormGroup>
               <FormGroup>
                 <Input
                   type="text"
-                  name="picture"
+                  name="pictureState"
                   placeholder="picture"
                   onChange={this.handleChange}
-                  defaultValue={picture}
+                  defaultValue={pictureState}
                 />
               </FormGroup>
             </Form>
@@ -145,11 +153,11 @@ class ModalComponent extends React.Component {
             {/* eslint-enable */}
               <SubmitButton
                 onClick={this.toggle}
-                id={id}
-                title={title}
-                description={description}
-                price={price}
-                picture={picture}
+                id={idState}
+                title={titleState}
+                description={descriptionState}
+                price={priceState}
+                picture={pictureState}
               />
             </a>
           </ModalFooter>

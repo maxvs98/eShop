@@ -7,13 +7,13 @@ import Modal from './Modal/ModalContainer';
 
 const ProductCardComponent = (product) => {
   const {
+    id,
     title,
     description,
     price,
     picture,
     addToCart,
     addedCount,
-    id,
     productRating,
     role,
   } = product;
@@ -28,9 +28,9 @@ const ProductCardComponent = (product) => {
         ? ''
         : (
           <Modal
-            /* onReceive={this.onReceiveState} */
             product={product}
             id={id}
+            title={title}
           />
         )}
       <Image src={picture} width="400" height="300" centered />

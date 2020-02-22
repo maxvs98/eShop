@@ -2,10 +2,10 @@ import { handleActions } from 'redux-actions';
 import { login, logout } from '../actions/authorization';
 
 const initialState = {
-  isAuth: false,
+  isAuth: true,
   id: null,
   login: null,
-  role: null,
+  role: 'admin',
 };
 
 export default handleActions({
