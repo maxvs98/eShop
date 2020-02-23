@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import orderBy from 'lodash/orderBy';
 import * as productsActions from '../../storage/actions/products';
+import * as authorizationActions from '../../storage/actions/authorization';
 import ShopComponent from './ShopComponent';
 
 const sortBy = (products, filterBy) => {
@@ -24,15 +25,17 @@ const searchProducts = (products, filterBy, searchQuery) => (
   sortBy(filterProducts(products, searchQuery), filterBy)
 );
 
-const mapStateToProps = ({ products, filter }) => ({
+const mapStateToProps = ({ products, filter, authorization }) => ({
   products:
     products.items
     && searchProducts(products.items, filter.filterBy, filter.searchQuery),
   isReady: products.isReady,
+  userId: authorization.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   ...bindActionCreators(productsActions, dispatch),
+  ...bindActionCreators(authorizationActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopComponent);

@@ -39,6 +39,14 @@ const FilterComponent = ({
     >
     Дешёвые
     </Menu.Item>
+    <Menu.Item
+      active={filterBy === 'marked'}
+      /* eslint-disable */
+      onClick={setFilter.bind(this, 'marked')}
+      /* eslint-enable */
+    >
+    Оценены
+    </Menu.Item>
     <Menu.Item position="right">
       <Input
         value={searchQuery}

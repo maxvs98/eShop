@@ -59,7 +59,7 @@ class ModalComponent extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col text-center modal__button">
-              <Button circular icon="add" onClick={this.toggle} size="lg">
+              <Button circular basic onClick={this.toggle} size="lg">
                 ADD PRODUCT
               </Button>
             </div>

@@ -103,7 +103,7 @@ class UserTableComponent extends Component {
                         ? (
                           <td className="table__button">
                             {/* eslint-disable */}
-                            <Icon className="table__icon" circular name="delete" color="black" onClick={removeUser.bind(this,user['id'])} />
+                            <Icon className="table__icon" name="delete" color="black" onClick={removeUser.bind(this,user['id'])} />
                             {/* eslint-enable */}
                           </td>
                         )

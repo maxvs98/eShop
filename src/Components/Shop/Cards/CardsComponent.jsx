@@ -43,8 +43,7 @@ class CardsComponent extends Component {
     const { products } = this.props;
     const { productsPerPage } = this.state;
     let { currentPage } = this.state;
-    const count = Math.ceil(products.length / productsPerPage);
-    if (currentPage + 1 <= (count === 0 ? 1 : count)) {
+    if (currentPage + 1 <= Math.ceil(products.length / productsPerPage)) {
       currentPage += 1;
       this.setState({
         currentPage,
@@ -92,7 +91,7 @@ class CardsComponent extends Component {
               <Card.Group itemsPerRow={4}>
                 {/* eslint-disable */
                   !isReady
-                  ? 'загрузка'
+                  ? (<div className="no-goods">no goods</div>)
                   : (products.length
                   ? products.slice(indexOfFirstProduct, indexOfLastProduct).map((product) => (
                     <ProductCard key={product.id} {...product} />
