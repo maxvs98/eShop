@@ -14,7 +14,7 @@ const StarComponent = ({
     return (
       /* eslint-disable */
       <span
-        className="Star"
+        className="rating__icon"
         style={{ color }}
         onMouseEnter={() => console.log('HOVERED IN')}
         onMouseLeave={() => console.log('HOVERED OUT')}

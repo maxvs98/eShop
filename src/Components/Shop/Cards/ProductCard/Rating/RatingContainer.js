@@ -4,8 +4,9 @@ import * as ratingActions from '../../../../../storage/actions/rating';
 import * as productsActions from '../../../../../storage/actions/products';
 import RatingComponent from './RatingComponent';
 
-const mapStateToProps = ({ mark }) => ({
+const mapStateToProps = ({ mark, authorization }) => ({
   productRating: mark,
+  id: authorization.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({

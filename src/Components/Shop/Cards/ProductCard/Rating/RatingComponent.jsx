@@ -6,9 +6,14 @@ import Star from './Star/StarComponent';
 class Rating extends Component {
   constructor(props) {
     super(props);
+    const {
+      product, id,
+    } = this.props;
+    const number = product.mark.map((e) => e.id).indexOf(id);
+    const value = (number === -1 ? 0 : product.mark[number].value);
     this.state = {
-      dynamicValue: props.stars,
-      value: 0,
+      dynamicValue: value,
+      value,
     };
     this.colors = {
       1: '#f44336',
@@ -24,15 +29,52 @@ class Rating extends Component {
   }
 
   handleClick(newValue) {
-    const { addMark, product, changeProduct } = this.props;
-    this.setState({
-      value: newValue,
-      dynamicValue: newValue,
-    });
-    const newProduct = product;
-    newProduct.mark.push(newValue);
-    changeProduct(product.id, product);
-    addMark(product, newValue);
+    const {
+      product, changeProduct, id,
+    } = this.props;
+    const { value } = this.state;
+    if (value === newValue) {
+      this.setState({
+        value: 0,
+        dynamicValue: 0,
+      });
+    } else {
+      this.setState({
+        value: newValue,
+        dynamicValue: newValue,
+      });
+    }
+    const {
+      title,
+      description,
+      price,
+      picture,
+      tags,
+    } = product;
+    const productId = product.id;
+    const number = product.mark.map((e) => e.id).indexOf(id);
+    /* eslint-disable */
+
+    let { mark } = product;
+    if (value !== newValue) {
+      if (number !== -1) {
+        mark[number] = { id, value: newValue };
+      } else {
+        mark.push({ id, value: newValue });
+      }
+    } else {
+      mark = mark.filter((o) => o.id !== id);
+    }
+    const newProduct = {
+      id: productId,
+      title,
+      description,
+      price,
+      picture,
+      tags,
+      mark,
+    };
+    changeProduct(productId, newProduct);
   }
 
   handleDelete() {
@@ -84,7 +126,7 @@ class Rating extends Component {
         <Statistic size="tiny">
           <Statistic.Value>
             {mark.length
-              ? (mark.reduce((sum, current) => sum + current, 0) / mark.length).toFixed(1) : '0.0'}
+              ? (mark.reduce((sum, current) => sum + current.value, 0) / mark.length).toFixed(1) : '0.0'}
           </Statistic.Value>
         </Statistic>
       </div>
@@ -97,6 +139,7 @@ Rating.propTypes = {
   product: PropTypes.shape.isRequired,
   addMark: PropTypes.func.isRequired,
   stars: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Rating;
