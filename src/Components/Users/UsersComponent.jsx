@@ -8,9 +8,7 @@ const UsersComponent = () => (
     <div className="header__content">
       <Menu />
     </div>
-    <div className="main-content__table">
-      <UserTable />
-    </div>
+    <UserTable />
     <Footer />
   </div>
 );

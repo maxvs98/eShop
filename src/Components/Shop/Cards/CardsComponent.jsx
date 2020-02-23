@@ -43,7 +43,8 @@ class CardsComponent extends Component {
     const { products } = this.props;
     const { productsPerPage } = this.state;
     let { currentPage } = this.state;
-    if (currentPage + 1 <= Math.ceil(products.length / productsPerPage)) {
+    const count = Math.ceil(products.length / productsPerPage);
+    if (currentPage + 1 <= (count === 0 ? 1 : count)) {
       currentPage += 1;
       this.setState({
         currentPage,
@@ -73,6 +74,7 @@ class CardsComponent extends Component {
         {number}
       </div>
     ));
+    /* eslint-enable */
     return (
       <div className="container">
         <div className="row">
@@ -88,13 +90,14 @@ class CardsComponent extends Component {
                   />
                 )}
               <Card.Group itemsPerRow={4}>
-                {!isReady
+                {/* eslint-disable */
+                  !isReady
                   ? 'загрузка'
-                  : products.slice(indexOfFirstProduct, indexOfLastProduct).map((product) => (
-                    /* eslint-disable */
+                  : (products.length
+                  ? products.slice(indexOfFirstProduct, indexOfLastProduct).map((product) => (
                     <ProductCard key={product.id} {...product} />
-                    /* eslint-enable */
-                  ))}
+                  )) : (<div className="no-goods">no goods</div>))
+                /* eslint-enable */}
               </Card.Group>
             </div>
           </div>
