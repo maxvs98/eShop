@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input,
+  Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input,
 } from 'reactstrap';
+import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 class ModalComponent extends React.Component {
@@ -37,7 +38,7 @@ class ModalComponent extends React.Component {
     const {
       title, description, price, picture, modal, value,
     } = this.state;
-    const { buttonLabel, className } = this.props;
+    const { className } = this.props;
     const product = {
       id: Math.floor(Math.random() * (200 - 20)) + 200,
       title,
@@ -46,6 +47,7 @@ class ModalComponent extends React.Component {
       picture,
       tags: null,
       rating: null,
+      mark: [],
     };
     const handlerAddProduct = () => {
       const { addProduct } = this.props;
@@ -56,9 +58,9 @@ class ModalComponent extends React.Component {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col text-center">
-              <Button color="link" onClick={this.toggle} size="lg">
-                {buttonLabel}
+            <div className="col text-center modal__button">
+              <Button circular icon="add" onClick={this.toggle} size="lg">
+                ADD PRODUCT
               </Button>
             </div>
           </div>
@@ -110,7 +112,7 @@ class ModalComponent extends React.Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={handlerAddProduct} block>
+            <Button color="white" onClick={handlerAddProduct} block>
               ADD
             </Button>
           </ModalFooter>
@@ -122,7 +124,6 @@ class ModalComponent extends React.Component {
 
 ModalComponent.propTypes = {
   addProduct: PropTypes.func.isRequired,
-  buttonLabel: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
 };
 

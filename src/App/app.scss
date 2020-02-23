@@ -818,3 +818,78 @@ td {
 .rating__icon {
   margin-top: 5px;
 }
+
+.pages {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.pages__center-block {
+  height: 90px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.prev-icon {
+  margin-top: 39px;
+  margin-left: 50px;
+  width: 10px;
+  height: 14px;
+  background: url("../Components/Shop/Cards/img/PrevIcon.png") no-repeat center;
+  float: left;
+  cursor: pointer;
+}
+
+.page-numbers {
+  margin: 0px auto;
+}
+
+.number-selected {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  filter: drop-shadow(0px 20px 20px rgba(168, 172, 185, 0.62));
+  background-color: #ffffff;
+  z-index: 2;
+  opacity: 70%;
+}
+
+.next-icon {
+  margin-top: 39px;
+  width: 10px;
+  height: 14px;
+  background: url("../Components/Shop/Cards/img/NextIcon.png") no-repeat center;
+  float: left;
+  cursor: pointer;
+}
+
+.page-number {
+  margin-top: 20px;
+  width: 48px;
+  height: 48px;
+  font-size: 14px;
+  color: #3a405b;
+  font-weight: 700;
+  text-align: center;
+  float: left;
+  z-index: 4;
+  cursor: pointer;
+  padding-top: 15px;
+}
+
+.main-content__goods {
+  background-color: white;
+  padding: 15px 5px 50px 5px;
+}
+
+.page-button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.modal__button {
+  padding-bottom: 20px;
+}

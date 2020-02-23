@@ -18,11 +18,7 @@ const ShopComponent = () => (
         <Filter />
       </Container>
     </div>
-    <div className="main-content__table">
-      <Container>
-        <Cards />
-      </Container>
-    </div>
+    <Cards />
     <Footer />
   </div>
 );

@@ -53,8 +53,6 @@ class Rating extends Component {
     } = product;
     const productId = product.id;
     const number = product.mark.map((e) => e.id).indexOf(id);
-    /* eslint-disable */
-
     let { mark } = product;
     if (value !== newValue) {
       if (number !== -1) {
@@ -138,7 +136,6 @@ Rating.propTypes = {
   changeProduct: PropTypes.shape.isRequired,
   product: PropTypes.shape.isRequired,
   addMark: PropTypes.func.isRequired,
-  stars: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
 };
 
