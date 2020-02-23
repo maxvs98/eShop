@@ -31,7 +31,7 @@ CartComponent.propTypes = {
 };
 
 const MenuComponent = ({
-  totalPrice, count, items, log, role, clearCart,
+  totalPrice, count, items, log, role, clearCart, setFilter,
 }) => (
   <div>
     <div className="container">
@@ -124,7 +124,7 @@ const MenuComponent = ({
         </div>
         <div className="col-md-1 text-center">
           <div className="role__text">{log}</div>
-          <AuthButton clearCart={clearCart} />
+          <AuthButton clearCart={clearCart} setFilter={setFilter} />
         </div>
       </div>
     </div>
@@ -138,6 +138,7 @@ MenuComponent.propTypes = {
   log: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   clearCart: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default MenuComponent;

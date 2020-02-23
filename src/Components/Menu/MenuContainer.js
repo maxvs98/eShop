@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import uniqBy from 'lodash/uniqBy';
 import * as cartActions from '../../storage/actions/cart';
+import * as filterActions from '../../storage/actions/filter';
 import Menu from './MenuComponent';
 
 const mapStateToProps = ({ cart, authorization }) => ({
@@ -15,6 +16,7 @@ const mapStateToProps = ({ cart, authorization }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   ...bindActionCreators(cartActions, dispatch),
+  ...bindActionCreators(filterActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);
