@@ -94,7 +94,6 @@ class CardsComponent extends Component {
                     products={products}
                   />
                 )}
-              {currentPage}
               <Card.Group itemsPerRow={4}>
                 {/* eslint-disable */
                   !isReady
@@ -118,6 +117,7 @@ class CardsComponent extends Component {
                   <div className="col-md-1">
                     {/* eslint-disable */}
                     <div className="prev-icon" onClick={this.handleClickPrev} />
+                    {/* eslint-enable */}
                   </div>
                   <div className="col-md-10">
                     <div className="page-numbers d-flex justify-content-center">
