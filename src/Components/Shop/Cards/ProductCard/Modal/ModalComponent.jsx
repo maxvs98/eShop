@@ -52,9 +52,18 @@ class ModalComponent extends React.Component {
 
   handlerRemoveProduct() {
     const {
-      removeProduct, id,
+      removeProduct, id, setPageCount, products, currentPage, setCurrentPage,
     } = this.props;
     removeProduct(id);
+    const indexOfLastProduct = currentPage * 8;
+    const indexOfFirstProduct = indexOfLastProduct - 8;
+    if (
+      products.slice(indexOfFirstProduct, indexOfLastProduct).length === 1
+      && products.length > 0
+    ) {
+      setCurrentPage(currentPage - 1);
+    }
+    setPageCount(products.length);
   }
 
   render() {
@@ -168,8 +177,12 @@ ModalComponent.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
   picture: PropTypes.string.isRequired,
   product: PropTypes.shape.isRequired,
+  setPageCount: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  products: PropTypes.shape.isRequired,
 };
 
 export default ModalComponent;

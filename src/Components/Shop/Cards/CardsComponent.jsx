@@ -8,7 +8,6 @@ class CardsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 1,
       productsPerPage: 8,
     };
   }
@@ -22,39 +21,46 @@ class CardsComponent extends Component {
   }
 
   handleClick = (event) => {
-    this.setState({
-      currentPage: Number(event.target.id),
-    });
+    this.updatePageCount(event.target.id);
     document.documentElement.scrollTop = 0;
   };
 
+  updatePageCount = (page) => {
+    const { productsPerPage } = this.state;
+    const {
+      products, setPageCount, setCurrentPage,
+    } = this.props;
+    const indexOfLastProduct = page * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    setPageCount(products.slice(indexOfFirstProduct, indexOfLastProduct).length);
+    setCurrentPage(Number(page));
+  }
+
   handleClickPrev = () => {
-    let { currentPage } = this.state;
+    let { currentPage } = this.props;
     if (currentPage - 1 > 0) {
       currentPage -= 1;
-      this.setState({
-        currentPage,
-      });
     }
+    this.updatePageCount(currentPage);
     document.documentElement.scrollTop = 0;
   };
 
   handleClickNext = () => {
     const { products } = this.props;
     const { productsPerPage } = this.state;
-    let { currentPage } = this.state;
+    let { currentPage } = this.props;
     if (currentPage + 1 <= Math.ceil(products.length / productsPerPage)) {
       currentPage += 1;
-      this.setState({
-        currentPage,
-      });
     }
+    this.updatePageCount(currentPage);
     document.documentElement.scrollTop = 0;
   };
 
   render() {
-    const { products, isReady, role } = this.props;
-    const { currentPage, productsPerPage } = this.state;
+    const {
+      products, isReady, role, currentPage,
+    } = this.props;
+    const { productsPerPage } = this.state;
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const pageNumbers = [];
@@ -88,6 +94,7 @@ class CardsComponent extends Component {
                     products={products}
                   />
                 )}
+              {currentPage}
               <Card.Group itemsPerRow={4}>
                 {/* eslint-disable */
                   !isReady
@@ -111,7 +118,6 @@ class CardsComponent extends Component {
                   <div className="col-md-1">
                     {/* eslint-disable */}
                     <div className="prev-icon" onClick={this.handleClickPrev} />
-                    {/* eslint-enable */}
                   </div>
                   <div className="col-md-10">
                     <div className="page-numbers d-flex justify-content-center">
@@ -133,11 +139,15 @@ class CardsComponent extends Component {
 }
 
 CardsComponent.propTypes = {
+  setPageCount: PropTypes.func.isRequired,
   loadData: PropTypes.func.isRequired,
   products: PropTypes.shape.isRequired,
   isReady: PropTypes.bool.isRequired,
   isLoaded: PropTypes.bool.isRequired,
   role: PropTypes.string.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default CardsComponent;

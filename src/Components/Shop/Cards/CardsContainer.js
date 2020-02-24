@@ -39,6 +39,8 @@ const mapStateToProps = ({ products, filter, authorization }) => ({
   isReady: products.isReady,
   isLoaded: products.isLoaded,
   role: authorization.role,
+  pageCount: products.pageCount,
+  currentPage: products.currentPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({

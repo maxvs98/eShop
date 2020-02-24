@@ -1,15 +1,25 @@
 import { handleActions } from 'redux-actions';
 import {
-  removeProduct, addProduct, setProducts, changeProduct,
+  removeProduct, addProduct, setProducts, changeProduct, setPageCount, setCurrentPage2,
 } from '../actions/products';
 
 const initialState = {
   isReady: false,
   isLoaded: false,
   items: null,
+  pageCount: 0,
+  currentPage: 1,
 };
 
 export default handleActions({
+  [setCurrentPage2]: (state, action) => ({
+    ...state,
+    currentPage: action.payload.currentPage,
+  }),
+  [setPageCount]: (state, action) => ({
+    ...state,
+    pageCount: action.payload.pageCount,
+  }),
   [changeProduct]: (state, action) => ({
     ...state,
     items: state.items.map((o) => {
