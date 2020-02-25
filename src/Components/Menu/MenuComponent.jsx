@@ -4,18 +4,21 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import uniqBy from 'lodash/uniqBy';
 import logo from './img/logo.png';
 import AuthButton from './AuthButton/AuthButtonContainer';
 
 const CartComponent = ({
-  title, id, picture, removeFromCart,
+  title, id, picture, removeFromCart, removeOneFromCart, items,
 }) => (
-  <List selection divided verticalAlign="middle">
+  <List selection divided relaxed verticalAlign="middle">
     <List.Item>
       <List.Content floated="right">
-        {/* eslint-disable */}
-        <Button onClick={removeFromCart.bind(this,id)} color="white">Удалить</Button>
-        {/* eslint-enable */}
+        <span className="cart__count">
+          {items.filter((o) => o.id === id).length}
+        </span>
+        <Button icon onClick={() => removeFromCart(id)} color="white"><Icon name="delete" /></Button>
+        <Button icon onClick={() => removeOneFromCart(id)} color="white"><Icon name="minus" /></Button>
       </List.Content>
       <Image avatar src={picture} />
       <List.Content>{title}</List.Content>
@@ -28,6 +31,8 @@ CartComponent.propTypes = {
   id: PropTypes.number.isRequired,
   picture: PropTypes.string.isRequired,
   removeFromCart: PropTypes.func.isRequired,
+  removeOneFromCart: PropTypes.func.isRequired,
+  items: PropTypes.shape.isRequired,
 };
 
 const MenuComponent = ({
@@ -112,7 +117,7 @@ const MenuComponent = ({
               }
               content={
                 /* eslint-disable */
-                  items.map(product => <CartComponent {...product}/>)
+                  uniqBy(items, (o) => o.id).map(product => <CartComponent {...product} items={items}/>)
                 /* eslint-enable */
                 }
               on="click"

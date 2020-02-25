@@ -157,9 +157,6 @@ class RegistrationComponent extends Component {
                         placeholder="login"
                         name="log"
                         required
-                        /* eslint-disable */
-                        value={this.state.value}
-                        /* eslint-enable */
                         onChange={this.handleChange}
                       />
                       <div className="form__message">
@@ -207,9 +204,6 @@ class RegistrationComponent extends Component {
                         onChange={this.handleChange}
                         className="loginForm__input"
                         placeholder="first name"
-                        /* eslint-disable */
-                        value={this.state.value}
-                        /* eslint-enable */
                         noValidate
                       />
                       <div className="form__message">
@@ -222,9 +216,6 @@ class RegistrationComponent extends Component {
                         placeholder="last name"
                         name="surname"
                         required
-                        /* eslint-disable */
-                        value={this.state.value}
-                        /* eslint-enable */
                         onChange={this.handleChange}
                       />
                       <div className="form__message">
@@ -235,9 +226,6 @@ class RegistrationComponent extends Component {
                       <input
                         name="email"
                         placeholder="e-mail"
-                        /* eslint-disable */
-                        value={this.state.value}
-                        /* eslint-enable */
                         onChange={this.handleChange}
                         className="loginForm__input"
                         noValidate
@@ -257,7 +245,6 @@ class RegistrationComponent extends Component {
                     className="regForm__btn"
                     type="submit"
                     onClick={this.handleSubmit}
-                    /* onClick={handlerAddUser} */
                   >
                     confirm
                   </button>
