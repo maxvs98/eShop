@@ -16,6 +16,7 @@ const ProductCardComponent = (product) => {
     addedCount,
     role,
     mark,
+    tags,
   } = product;
 
   const handlerAddToCart = () => {
@@ -37,8 +38,16 @@ const ProductCardComponent = (product) => {
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>
-          <span className="date">{description}</span>
+          <div className="date">{description}</div>
         </Card.Meta>
+        <div className="productCard__tags">
+          {tags.map((tag) => (
+            <span className="productCard__tag">
+              #
+              {tag}
+            </span>
+          ))}
+        </div>
       </Card.Content>
       <Card.Content extra>
         <Icon name="dollar sign" />

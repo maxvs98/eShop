@@ -5,8 +5,8 @@
     "description": "Футболка с принтом Technical Univercity. Круглый вырез под горло в рубчик, короткие рукава, прямой подол и узкий крой. Цвет: розовый.",
     "price": 3.99,
     "picture": "https://vse-footbolki.ru/image/catalog/vsm/0/0/538/538931/previews/people_4_manshort_front_lightpink_700.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark": [],
+    "tags": []
   },
   {
     "id": 1,
@@ -14,8 +14,8 @@
     "description": "Классическая белая футболка, представленная в коллекции Gucci, выполнена из хлопковой ткани джерси с винтажным эффектом.",
     "price": 954.99,
     "picture": "https://cdn-images.farfetch-contents.com/12/14/71/57/12147157_10105325_1000.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 2,
@@ -23,8 +23,8 @@
     "description": "Классическая черная футболка, представленная в коллекции Gucci, выполнена из хлопковой ткани джерси с винтажным эффектом.",
     "price": 335.99,
     "picture": "https://cdn-images.farfetch-contents.com/12/65/75/44/12657544_12272154_1000.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 3,
@@ -32,8 +32,8 @@
     "description": "Классическая черная футболка, представленная в коллекции DOLCE & GABBANA, выполнена из хлопковой ткани джерси с винтажным эффектом.",
     "price": 627.99,
     "picture": "https://cdn-images.farfetch-contents.com/13/81/34/07/13813407_20024327_1000.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 4,
@@ -41,8 +41,8 @@
     "description": "Классическая черная футболка, представленная в коллекции EMPORIO ARMANI, выполнена из хлопковой ткани джерси с винтажным эффектом.",
     "price": 159.99,
     "picture": "https://cdn-images.farfetch-contents.com/14/35/20/83/14352083_22272301_1000.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 5,
@@ -50,8 +50,8 @@
     "description": "Футболка с принтом Golfed Wank. Круглый вырез под горло в рубчик, короткие рукава, прямой подол и узкий крой. Цвет: черный.",
     "price": 36.99,
     "picture": "https://cdn.shopify.com/s/files/1/0030/5253/5857/products/golfed-wang-sk-90th-tyler-the-creator-ofwgkta-skate-frank-ocean-t-shirt-casual-men-t-shirt-black-l-7_900x.jpg?v=1576171762",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 6,
@@ -59,8 +59,8 @@
     "description": "Футболка с принтом Mts 130. Круглый вырез под горло в рубчик, короткие рукава, прямой подол и узкий крой. Цвет: черный.",
     "price": 71.99,
     "picture": "https://ae01.alicdn.com/kf/HTB1QB0cLpXXXXb1XVXXq6xXFXXXe/MTS130-3D.jpg_640x640.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 7,
@@ -68,8 +68,8 @@
     "description": "Футболка с принтом Hold The Gate. Круглый вырез под горло в рубчик, короткие рукава, прямой подол и узкий крой. Цвет: черный.",
     "price": 75.99,
     "picture": "https://cdn.shopify.com/s/files/1/0030/5253/5857/products/xxxtentacion-kanye-west-season-6-men-11-high-quality-hold-the-gate-t-shirts-tees-short-sleeve-t-shirt-1-s-6@2x.jpg?v=1571980158",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 8,
@@ -77,8 +77,8 @@
     "description": "Футболка с принтом Tupac Amaru Shakur. Круглый вырез под горло в рубчик, короткие рукава, прямой подол и узкий крой. Цвет: белый.",
     "price": 67.99,
     "picture": "https://cdn.shopify.com/s/files/1/0030/5253/5857/products/men-2pac-print-t-shirts-hip-hop-swag-king-tupac-amaru-shakur-cotton-tee-shirts-makaveli-design-tops-tee-euro-sizegmt007-blue-a-s-7_900x.jpg?v=1571971766",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   },
   {
     "id": 9,
@@ -86,7 +86,7 @@
     "description": "Футболка с принтом Landlord. Круглый вырез под горло в рубчик, короткие рукава, прямой подол и узкий крой. Цвет: красный.",
     "price": 100.99,
     "picture": "https://www.redthreads.org/wp-content/uploads/2019/04/kill-your-landlord-t-shirt-red.jpg",
-    "tags": "good",
-    "mark" : []
+    "mark" : [],
+    "tags": []
   }
 ]

@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input,
 } from 'reactstrap';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 class ModalComponent extends React.Component {
@@ -13,10 +13,14 @@ class ModalComponent extends React.Component {
       description: '',
       price: '',
       picture: '',
+      newTag: '',
+      tags: [],
       modal: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.handleAddTag = this.handleAddTag.bind(this);
+    this.handleRemoveTag = this.handleRemoveTag.bind(this);
   }
 
   toggle() {
@@ -34,9 +38,28 @@ class ModalComponent extends React.Component {
     });
   }
 
+  handleAddTag(tag) {
+    const { tags } = this.state;
+    const newTags = tags;
+    newTags.push(tag);
+    this.setState({
+      tags: newTags,
+      newTag: '',
+    });
+  }
+
+  handleRemoveTag(id) {
+    const { tags } = this.state;
+    const newTags = tags;
+    newTags.splice(id, 1);
+    this.setState({
+      tags: newTags,
+    });
+  }
+
   render() {
     const {
-      title, description, price, picture, modal, value,
+      title, description, price, picture, modal, value, tags, newTag,
     } = this.state;
     const { className } = this.props;
     const product = {
@@ -45,7 +68,7 @@ class ModalComponent extends React.Component {
       description,
       price,
       picture,
-      tags: null,
+      tags,
       rating: null,
       mark: [],
     };
@@ -53,6 +76,9 @@ class ModalComponent extends React.Component {
       const { addProduct } = this.props;
       addProduct(product);
       this.toggle();
+      this.setState({
+        tags: [],
+      });
     };
     return (
       <div>
@@ -109,11 +135,37 @@ class ModalComponent extends React.Component {
                   value={value}
                 />
               </FormGroup>
+              <FormGroup>
+                <Input
+                  className="button__addTag"
+                  type="text"
+                  name="newTag"
+                  placeholder="add new tag"
+                  onChange={this.handleChange}
+                  value={newTag}
+                />
+                <Button type="button" onClick={() => { this.handleAddTag(newTag); }}>
+                  add
+                </Button>
+                <div className="product__tags">
+                  {tags.map((tag, i) => (
+                    <span className="product__tag">
+                      #
+                      {tag}
+                      {/* eslint-disable */}
+                      <Icon.Group className="modal__icon" size="large" key={i} onClick={() => { this.handleRemoveTag(i); }}>
+                        <Icon corner="top left" name="delete" />
+                      </Icon.Group>
+                      {/* eslint-enable */}
+                    </span>
+                  ))}
+                </div>
+              </FormGroup>
             </Form>
           </ModalBody>
           <ModalFooter>
             <Button color="white" onClick={handlerAddProduct} block>
-              ADD
+              CONFIRM
             </Button>
           </ModalFooter>
         </Modal>

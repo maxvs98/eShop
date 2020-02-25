@@ -41,7 +41,7 @@ const FilterComponent = ({
       <Input
         value={searchQuery}
         onChange={(e) => { setCurrentPage(1); setSearchQuery(e.target.value); }}
-        placeholder="Поиск по товарам..."
+        placeholder="Поиск по тегам..."
         icon="search"
       />
     </Menu.Item>

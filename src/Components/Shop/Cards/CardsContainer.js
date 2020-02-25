@@ -23,10 +23,24 @@ const sortBy = (products, filterBy, id) => {
   }
 };
 
-const filterProducts = (products, searchQuery) => products.filter(
-  (o) => o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
-  || o.description.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0,
-);
+const filterProducts = (products, searchQuery) => {
+  if (searchQuery) {
+    const newProducts = [];
+    products.forEach((product) => {
+      let f = false;
+      product.tags.forEach((tag) => {
+        if (tag.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0) {
+          f = true;
+        }
+      });
+      if (f) {
+        newProducts.push(product);
+      }
+    });
+    return newProducts;
+  }
+  return products;
+};
 
 const searchProducts = (
   products, filterBy, searchQuery, id,
