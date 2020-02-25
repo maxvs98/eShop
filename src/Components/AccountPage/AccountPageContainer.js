@@ -11,6 +11,7 @@ const mapStateToProps = ({ users, authorization }) => ({
   isReady: users.isReady,
   isLoaded: users.isLoaded,
   isAuth: authorization.isAuth,
+  userSwitch: authorization.userSwitch,
 });
 
 const mapDispatchToProps = (dispatch) => ({
