@@ -874,7 +874,7 @@ td {
 
 .main-content__goods {
   background-color: white;
-  padding: 15px 5px 50px 5px;
+  padding: 60px;
 }
 
 .page-button {
@@ -919,4 +919,32 @@ td {
 
 .cart__box {
   border: 1px solid black;
+}
+
+.card__img {
+  max-width:100%;
+}
+
+.addButton__text {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product__mark {
+  font-size: 22px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.rating__modal {
+  position: relative!important;
+  width: 80%;
+  margin-top: 400px;
+  height: auto;
+}
+
+.rating__table {
+  margin: 0px auto;
 }

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Statistic } from 'semantic-ui-react';
+import {
+  Modal,
+} from 'semantic-ui-react';
 import Star from './Star/StarComponent';
+import List from './List/ListComponent';
 
 class Rating extends Component {
   constructor(props) {
@@ -24,8 +27,42 @@ class Rating extends Component {
       6: 'green',
     };
     this.handleClick = this.handleClick.bind(this);
+    this.getStars = this.getStars.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
+  }
+
+  componentDidMount() {
+    const { isLoaded } = this.props;
+    if (!isLoaded) {
+      const { loadData } = this.props;
+      loadData();
+    }
+  }
+
+  getStars(value) {
+    const starSpans = [];
+    let count = 0;
+    for (let v = 1; v <= 5; v += 1) {
+      if (v <= value) {
+        count += 1;
+      }
+    }
+    for (let v = 1; v <= 5; v += 1) {
+      starSpans.push(
+        <Star
+          key={v}
+          color={this.colors[count]}
+          isFilled={v <= value}
+          value={v}
+          handleHover={() => {}}
+          handleHoverLeave={() => {}}
+          handleClick={() => {}}
+          handleDelete={() => {}}
+        />,
+      );
+    }
+    return starSpans;
   }
 
   handleClick(newValue) {
@@ -94,7 +131,7 @@ class Rating extends Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, users } = this.props;
     const { mark } = product;
     const { dynamicValue } = this.state;
     const starSpans = [];
@@ -121,12 +158,30 @@ class Rating extends Component {
     return (
       <div>
         {starSpans}
-        <Statistic size="tiny">
-          <Statistic.Value>
-            {mark.length
-              ? (mark.reduce((sum, current) => sum + current.value, 0) / mark.length).toFixed(1) : '0.0'}
-          </Statistic.Value>
-        </Statistic>
+        <Modal
+          className="rating__modal"
+          trigger={(
+            <span className="product__mark">
+              {mark.length
+                ? (mark.reduce((sum, current) => sum + current.value, 0) / mark.length).toFixed(1) : '0.0'}
+            </span>
+          )}
+        >
+          <Modal.Header>Rated by</Modal.Header>
+          <Modal.Content image>
+            <table className="rating__table">
+              {product.mark.map(
+                (markItem) => (
+                  <List
+                    getStars={this.getStars}
+                    users={users}
+                    markItem={markItem}
+                  />
+                ),
+              )}
+            </table>
+          </Modal.Content>
+        </Modal>
       </div>
     );
   }
@@ -135,8 +190,11 @@ class Rating extends Component {
 Rating.propTypes = {
   changeProduct: PropTypes.shape.isRequired,
   product: PropTypes.shape.isRequired,
+  users: PropTypes.shape.isRequired,
   addMark: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
+  isLoaded: PropTypes.bool.isRequired,
+  loadData: PropTypes.func.isRequired,
 };
 
 export default Rating;

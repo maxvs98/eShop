@@ -33,7 +33,7 @@ const ProductCardComponent = (product) => {
             title={title}
           />
         )}
-      <Image src={picture} width="400" height="300" centered />
+      <Image src={picture} className="card__img" height="300" centered />
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>
@@ -43,13 +43,14 @@ const ProductCardComponent = (product) => {
       <Card.Content extra>
         <Icon name="dollar sign" />
         {price}
-        <p className="product__rating">
-          <Rating stars={mark} product={product} />
-        </p>
+        <br />
+        <Rating stars={mark} product={product} />
       </Card.Content>
       <Button floated="left" onClick={handlerAddToCart} color="black">
-        Добавить в корзину
-        {addedCount > 0 && `(${addedCount})`}
+        <span className="addButton__text">
+          add to cart
+          {addedCount > 0 && `(${addedCount})`}
+        </span>
       </Button>
     </Card>
   );

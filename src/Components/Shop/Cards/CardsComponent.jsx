@@ -8,7 +8,7 @@ class CardsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productsPerPage: 8,
+      productsPerPage: 9,
     };
   }
 
@@ -94,7 +94,7 @@ class CardsComponent extends Component {
                     products={products}
                   />
                 )}
-              <Card.Group itemsPerRow={4}>
+              <Card.Group itemsPerRow={3}>
                 {/* eslint-disable */
                   !isReady
                   ? (<div className="no-goods">no goods</div>)

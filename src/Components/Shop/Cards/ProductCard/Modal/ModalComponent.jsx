@@ -55,8 +55,8 @@ class ModalComponent extends React.Component {
       removeProduct, id, setPageCount, products, currentPage, setCurrentPage,
     } = this.props;
     removeProduct(id);
-    const indexOfLastProduct = currentPage * 8;
-    const indexOfFirstProduct = indexOfLastProduct - 8;
+    const indexOfLastProduct = currentPage * 9;
+    const indexOfFirstProduct = indexOfLastProduct - 9;
     if (
       products.slice(indexOfFirstProduct, indexOfLastProduct).length === 1
       && products.length > 0
