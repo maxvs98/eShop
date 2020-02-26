@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions';
+/* eslint-disable */
 import {
-  removeProduct, addProduct, setProducts, changeProduct, setPageCount, setCurrentPage2,
+  removeProduct, addProduct, setProducts, changeProduct, setPageCount, setCurrentPage,
 } from '../actions/products';
 
 const initialState = {
@@ -12,7 +13,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [setCurrentPage2]: (state, action) => ({
+  [setCurrentPage]: (state, action) => ({
     ...state,
     currentPage: action.payload.currentPage,
   }),

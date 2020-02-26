@@ -5,10 +5,6 @@ export const setCurrentPage = createAction('SET_CURRENT_PAGE', (currentPage) => 
   currentPage,
 }));
 
-export const setCurrentPage2 = createAction('SET_CURRENT_PAGE', (currentPage) => ({
-  currentPage,
-}));
-
 export const setPageCount = createAction('SET_PAGE_COUNT', (pageCount) => ({
   pageCount,
 }));

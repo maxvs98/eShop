@@ -8,7 +8,6 @@ class UserTableComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 1,
       usersPerPage: 15,
     };
   }
@@ -22,41 +21,46 @@ class UserTableComponent extends Component {
   }
 
   handleClick = (event) => {
-    this.setState({
-      currentPage: Number(event.target.id),
-    });
+    this.updatePageCount(event.target.id);
     document.documentElement.scrollTop = 0;
   };
 
+  updatePageCount = (page) => {
+    const { usersPerPage } = this.state;
+    const {
+      users, setPageCount, setCurrentPage,
+    } = this.props;
+    const indexOfLastProduct = page * usersPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - usersPerPage;
+    setPageCount(users.slice(indexOfFirstProduct, indexOfLastProduct).length);
+    setCurrentPage(Number(page));
+  }
+
   handleClickPrev = () => {
-    let { currentPage } = this.state;
+    let { currentPage } = this.props;
     if (currentPage - 1 > 0) {
       currentPage -= 1;
-      this.setState({
-        currentPage,
-      });
     }
+    this.updatePageCount(currentPage);
     document.documentElement.scrollTop = 0;
   };
 
   handleClickNext = () => {
     const { users } = this.props;
     const { usersPerPage } = this.state;
-    let { currentPage } = this.state;
+    let { currentPage } = this.props;
     if (currentPage + 1 <= Math.ceil(users.length / usersPerPage)) {
       currentPage += 1;
-      this.setState({
-        currentPage,
-      });
     }
+    this.updatePageCount(currentPage);
     document.documentElement.scrollTop = 0;
   };
 
   render() {
     const {
-      users, isReady, removeUser,
+      users, isReady, removeUser, currentPage,
     } = this.props;
-    const { currentPage, usersPerPage } = this.state;
+    const { usersPerPage } = this.state;
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const pageNumbers = [];
@@ -158,6 +162,9 @@ UserTableComponent.propTypes = {
   isLoaded: PropTypes.bool.isRequired,
   loadData: PropTypes.func.isRequired,
   removeUser: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  setPageCount: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default UserTableComponent;

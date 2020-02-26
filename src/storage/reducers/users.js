@@ -1,19 +1,28 @@
-/* eslint-disable */
 import { handleActions } from 'redux-actions';
 import {
-  removeUser, addUser, setUsers, getUser, changeUser,
+  removeUser, addUser, setUsers, getUser, changeUser, setPageCount, setCurrentPage,
 } from '../actions/users';
 
 const initialState = {
   isReady: false,
   isLoaded: false,
   items: null,
+  pageCount: 0,
+  currentPage: 1,
 };
 
 export default handleActions({
+  [setCurrentPage]: (state, action) => ({
+    ...state,
+    currentPage: action.payload.currentPage,
+  }),
+  [setPageCount]: (state, action) => ({
+    ...state,
+    pageCount: action.payload.pageCount,
+  }),
   [changeUser]: (state, action) => ({
     ...state,
-    items: state.items.map(o => {
+    items: state.items.map((o) => {
       if (o.id === action.payload.id) {
         return action.payload.obj;
       }

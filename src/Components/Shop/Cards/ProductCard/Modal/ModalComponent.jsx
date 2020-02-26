@@ -46,6 +46,7 @@ class ModalComponent extends React.Component {
     newTags.splice(id, 1);
     this.setState({
       tagsState: newTags,
+      stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
     });
   }
 
