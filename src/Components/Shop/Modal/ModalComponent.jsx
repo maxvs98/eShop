@@ -1,26 +1,54 @@
 import React from 'react';
 import {
-  Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input,
+  Modal, ModalHeader, ModalBody,
 } from 'reactstrap';
-import { Button, Icon } from 'semantic-ui-react';
+import {
+  Button, Input, Icon,
+} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
 
 class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: Math.floor(Math.random() * (200 - 20)) + 200,
       title: '',
       description: '',
       price: '',
       picture: '',
-      newTag: '',
+      mark: [],
       tags: [],
       modal: false,
+      newTag: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggle = this.toggle.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
     this.handleRemoveTag = this.handleRemoveTag.bind(this);
+  }
+
+  handleAddTag(tag) {
+    const { tags } = this.state;
+    const newTags = tags;
+    newTags.push(tag);
+    this.setState({
+      tagsState: newTags,
+      newTag: '',
+      stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
+    });
+  }
+
+  handleRemoveTag(id) {
+    const { tagsState } = this.state;
+    const newTags = tagsState;
+    newTags.splice(id, 1);
+    this.setState({
+      tagsState: newTags,
+      stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
+    });
   }
 
   toggle() {
@@ -38,48 +66,20 @@ class ModalComponent extends React.Component {
     });
   }
 
-  handleAddTag(tag) {
-    const { tags } = this.state;
-    const newTags = tags;
-    newTags.push(tag);
-    this.setState({
-      tags: newTags,
-      newTag: '',
-    });
-  }
-
-  handleRemoveTag(id) {
-    const { tags } = this.state;
-    const newTags = tags;
-    newTags.splice(id, 1);
-    this.setState({
-      tags: newTags,
-    });
-  }
-
   render() {
     const {
-      title, description, price, picture, modal, value, tags, newTag,
-    } = this.state;
-    const { className } = this.props;
-    const product = {
-      id: Math.floor(Math.random() * (200 - 20)) + 200,
+      modal,
+      id,
       title,
       description,
       price,
       picture,
+      mark,
       tags,
-      rating: null,
-      mark: [],
-    };
-    const handlerAddProduct = () => {
-      const { addProduct } = this.props;
-      addProduct(product);
-      this.toggle();
-      this.setState({
-        tags: [],
-      });
-    };
+      stateUpdate,
+      newTag,
+    } = this.state;
+    const { className } = this.props;
     return (
       <div>
         <div className="container">
@@ -96,78 +96,151 @@ class ModalComponent extends React.Component {
           toggle={this.toggle}
           className={className}
         >
-          <ModalHeader toggle={this.toggle}>ADD PRODUCT</ModalHeader>
+          <ModalHeader toggle={this.toggle}>EDIT PRODUCT</ModalHeader>
           <ModalBody>
-            <Form>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="title"
-                  placeholder="title"
-                  onChange={this.handleChange}
-                  value={value}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="description"
-                  placeholder="description"
-                  onChange={this.handleChange}
-                  value={value}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="price"
-                  placeholder="price"
-                  onChange={this.handleChange}
-                  value={value}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="picture"
-                  placeholder="picture"
-                  onChange={this.handleChange}
-                  value={value}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  className="button__addTag"
-                  type="text"
-                  name="newTag"
-                  placeholder="add new tag"
-                  onChange={this.handleChange}
-                  value={newTag}
-                />
-                <Button type="button" onClick={() => { this.handleAddTag(newTag); }}>
-                  add
-                </Button>
-                <div className="product__tags">
-                  {tags.map((tag, i) => (
-                    <span className="product__tag">
-                      #
-                      {tag}
-                      {/* eslint-disable */}
-                      <Icon.Group className="modal__icon" size="large" key={i} onClick={() => { this.handleRemoveTag(i); }}>
-                        <Icon corner="top left" name="delete" />
-                      </Icon.Group>
-                      {/* eslint-enable */}
-                    </span>
-                  ))}
-                </div>
-              </FormGroup>
-            </Form>
+            <Formik
+              initialValues={{
+                title, description, price, picture,
+              }}
+              validate={(values) => {
+                const errors = {};
+                if (values.title === '') {
+                  errors.title = 'Title is required';
+                } else if (values.title.length < 5) {
+                  errors.title = 'Title must be 5 characters at minimum';
+                }
+                if (values.description === '') {
+                  errors.description = 'Description is required';
+                } else if (values.description.length < 5) {
+                  errors.description = 'Description must be 5 characters at minimum';
+                }
+                if (values.price === '') {
+                  errors.price = 'Price is required';
+                } else if (Number.isNaN(Number(values.price))) {
+                  errors.price = 'Price must be a number';
+                }
+                if (values.picture === '') {
+                  errors.picture = 'Picture is required';
+                } else if (values.picture.length < 5) {
+                  errors.picture = 'Picture must be 5 characters at minimum';
+                }
+                return errors;
+              }}
+              onSubmit={(values) => {
+                /* eslint-disable */
+                const { addProduct } = this.props;
+                const newProduct = {
+                  id,
+                  title: values.title,
+                  description: values.description,
+                  price: values.price,
+                  picture: values.picture,
+                  mark,
+                  tags,
+                  update: stateUpdate,
+                };
+                addProduct(newProduct);
+                this.toggle();
+              }}
+            >
+              {({ touched, errors }) => (
+                <Form>
+                  <div className="form-group">
+                    <Field
+                      name="title"
+                      placeholder="Title"
+                      className={`form-control ${
+                        touched.title && errors.title ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="title"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <Field
+                      name="description"
+                      placeholder="Description"
+                      className={`form-control ${
+                        touched.description && errors.description ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="description"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <Field
+                      name="price"
+                      placeholder="Price"
+                      className={`form-control ${
+                        touched.price && errors.price ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="price"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <Field
+                      name="picture"
+                      placeholder="Picture"
+                      className={`form-control ${
+                        touched.picture && errors.picture ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="picture"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <Input
+                    className="button__addTag"
+                    type="text"
+                    name="newTag"
+                    placeholder="add new tag"
+                    onChange={this.handleChange}
+                    value={newTag}
+                    className="modal__input"
+                  />
+                  <Button type="button" onClick={() => { newTag ? this.handleAddTag(newTag) : '' }}>
+                    add
+                  </Button>
+                  <div className="product__tags">
+                    {tags.map((tag, i) => (
+                      <span className="product__tag">
+                        #
+                        {tag}
+                        {/* eslint-disable */}
+                        <Icon.Group className="modal__icon" size="large" key={i} onClick={() => { this.handleRemoveTag(i); }}>
+                          <Icon corner="top left" name="delete" />
+                        </Icon.Group>
+                        {/* eslint-enable */}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                  >
+                    Save
+                  </Button>
+                </Form>
+              )}
+            </Formik>
           </ModalBody>
-          <ModalFooter>
-            <Button color="white" onClick={handlerAddProduct} block>
-              CONFIRM
-            </Button>
-          </ModalFooter>
         </Modal>
       </div>
     );

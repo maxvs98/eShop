@@ -1,24 +1,27 @@
 import React from 'react';
 import {
-  Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input,
+  Modal, ModalHeader, ModalBody,
 } from 'reactstrap';
 import {
-  Button, Icon,
+  Button, Input, Icon,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
 
 class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
     const { product } = this.props;
     this.state = {
-      idState: product.id,
-      titleState: product.title,
-      descriptionState: product.description,
-      priceState: product.price,
-      pictureState: product.picture,
-      markState: product.mark,
-      tagsState: product.tags,
+      id: product.id,
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      picture: product.picture,
+      mark: product.mark,
+      tags: product.tags,
       modal: false,
       newTag: '',
     };
@@ -30,8 +33,8 @@ class ModalComponent extends React.Component {
   }
 
   handleAddTag(tag) {
-    const { tagsState } = this.state;
-    const newTags = tagsState;
+    const { tags } = this.state;
+    const newTags = tags;
     newTags.push(tag);
     this.setState({
       tagsState: newTags,
@@ -56,13 +59,13 @@ class ModalComponent extends React.Component {
     }));
     const { product } = this.props;
     this.setState({
-      idState: product.id,
-      titleState: product.title,
-      descriptionState: product.description,
-      priceState: product.price,
-      pictureState: product.picture,
-      markState: product.mark,
-      tagsState: product.tags,
+      id: product.id,
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      picture: product.picture,
+      mark: product.mark,
+      tags: product.tags,
     });
   }
 
@@ -94,34 +97,20 @@ class ModalComponent extends React.Component {
   render() {
     const {
       modal,
-      idState,
-      titleState,
-      descriptionState,
-      priceState,
-      pictureState,
-      markState,
-      tagsState,
-      newTag,
+      id,
+      title,
+      description,
+      price,
+      picture,
+      mark,
+      tags,
       stateUpdate,
+      newTag,
     } = this.state;
     const {
       className,
     } = this.props;
-    const handleChangeProduct = () => {
-      const { changeProduct } = this.props;
-      const newProduct = {
-        id: idState,
-        title: titleState,
-        description: descriptionState,
-        price: priceState,
-        picture: pictureState,
-        mark: markState,
-        tags: tagsState,
-        update: stateUpdate,
-      };
-      changeProduct(idState, newProduct);
-      this.toggle();
-    };
+    // const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     return (
       <div>
         <div className="product__buttons">
@@ -151,76 +140,149 @@ class ModalComponent extends React.Component {
         >
           <ModalHeader toggle={this.toggle}>EDIT PRODUCT</ModalHeader>
           <ModalBody>
-            <Form>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="titleState"
-                  placeholder="title"
-                  onChange={this.handleChange}
-                  defaultValue={titleState}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="descriptionState"
-                  placeholder="description"
-                  onChange={this.handleChange}
-                  defaultValue={descriptionState}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="priceState"
-                  placeholder="price"
-                  onChange={this.handleChange}
-                  defaultValue={priceState}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="pictureState"
-                  placeholder="picture"
-                  onChange={this.handleChange}
-                  defaultValue={pictureState}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  className="button__addTag"
-                  type="text"
-                  name="newTag"
-                  placeholder="add new tag"
-                  onChange={this.handleChange}
-                  value={newTag}
-                />
-                <Button type="button" onClick={() => { this.handleAddTag(newTag); }}>
-                  add
-                </Button>
-                <div className="product__tags">
-                  {tagsState.map((tag, i) => (
-                    <span className="product__tag">
-                      #
-                      {tag}
-                      {/* eslint-disable */}
-                      <Icon.Group className="modal__icon" size="large" key={i} onClick={() => { this.handleRemoveTag(i); }}>
-                        <Icon corner="top left" name="delete" />
-                      </Icon.Group>
-                      {/* eslint-enable */}
-                    </span>
-                  ))}
-                </div>
-              </FormGroup>
-            </Form>
+            <Formik
+              initialValues={{
+                title, description, price, picture,
+              }}
+              validate={(values) => {
+                const errors = {};
+                if (values.title === '') {
+                  errors.title = 'Title is required';
+                } else if (values.title.length < 5) {
+                  errors.title = 'Title must be 5 characters at minimum';
+                }
+                if (values.description === '') {
+                  errors.description = 'Description is required';
+                } else if (values.description.length < 5) {
+                  errors.description = 'Description must be 5 characters at minimum';
+                }
+                if (values.price === '') {
+                  errors.price = 'Price is required';
+                } else if (Number.isNaN(Number(values.price))) {
+                  errors.price = 'Price must be a number';
+                }
+                if (values.picture === '') {
+                  errors.picture = 'Picture is required';
+                } else if (values.picture.length < 5) {
+                  errors.picture = 'Picture must be 5 characters at minimum';
+                }
+                return errors;
+              }}
+              onSubmit={(values) => {
+                /* eslint-disable */
+                const { changeProduct } = this.props;
+                const newProduct = {
+                  id,
+                  title: values.title,
+                  description: values.description,
+                  price: values.price,
+                  picture: values.picture,
+                  mark,
+                  tags,
+                  update: stateUpdate,
+                };
+                changeProduct(id, newProduct);
+                this.toggle();
+              }}
+            >
+              {({ touched, errors }) => (
+                <Form>
+                  <div className="form-group">
+                    <Field
+                      name="title"
+                      placeholder="Title"
+                      className={`form-control ${
+                        touched.title && errors.title ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="title"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <Field
+                      name="description"
+                      placeholder="Description"
+                      className={`form-control ${
+                        touched.description && errors.description ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="description"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <Field
+                      name="price"
+                      placeholder="Price"
+                      className={`form-control ${
+                        touched.price && errors.price ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="price"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <Field
+                      name="picture"
+                      placeholder="Picture"
+                      className={`form-control ${
+                        touched.picture && errors.picture ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <ErrorMessage
+                      component="div"
+                      name="picture"
+                      className="invalid-feedback"
+                    />
+                  </div>
+
+                  <Input
+                    className="button__addTag"
+                    type="text"
+                    name="newTag"
+                    placeholder="add new tag"
+                    onChange={this.handleChange}
+                    value={newTag}
+                    className="modal__input"
+                  />
+                  <Button type="button" onClick={() => { newTag ? this.handleAddTag(newTag) : '' }}>
+                    add
+                  </Button>
+                  <div className="product__tags">
+                    {tags.map((tag, i) => (
+                      <span className="product__tag">
+                        #
+                        {tag}
+                        {/* eslint-disable */}
+                        <Icon.Group className="modal__icon" size="large" key={i} onClick={() => { this.handleRemoveTag(i); }}>
+                          <Icon corner="top left" name="delete" />
+                        </Icon.Group>
+                        {/* eslint-enable */}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                  >
+                    Save
+                  </Button>
+                </Form>
+              )}
+            </Formik>
           </ModalBody>
-          <ModalFooter>
-            <Button color="white" onClick={handleChangeProduct} block>
-              SAVE
-            </Button>
-          </ModalFooter>
         </Modal>
       </div>
     );
