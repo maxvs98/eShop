@@ -35,18 +35,18 @@ class ModalComponent extends React.Component {
     const newTags = tags;
     newTags.push(tag);
     this.setState({
-      tagsState: newTags,
+      tags: newTags,
       newTag: '',
       stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
     });
   }
 
   handleRemoveTag(id) {
-    const { tagsState } = this.state;
-    const newTags = tagsState;
+    const { tags } = this.state;
+    const newTags = tags;
     newTags.splice(id, 1);
     this.setState({
-      tagsState: newTags,
+      tags: newTags,
       stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
     });
   }
@@ -127,7 +127,6 @@ class ModalComponent extends React.Component {
                 return errors;
               }}
               onSubmit={(values) => {
-                /* eslint-disable */
                 const { addProduct } = this.props;
                 const newProduct = {
                   id,
@@ -206,14 +205,14 @@ class ModalComponent extends React.Component {
                   </div>
 
                   <Input
-                    className="button__addTag"
+                    className="button__addTag modal__input"
                     type="text"
                     name="newTag"
                     placeholder="add new tag"
                     onChange={this.handleChange}
                     value={newTag}
-                    className="modal__input"
                   />
+                  {/* eslint-disable */}
                   <Button type="button" onClick={() => { newTag ? this.handleAddTag(newTag) : '' }}>
                     add
                   </Button>

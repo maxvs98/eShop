@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { addMark, removeMark } from '../actions/rating';
 
-const initialState = {
+export const initialState = {
   items: [],
 };
 

@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { setFilter, setSearchQuery } from '../actions/filter';
 
-const initialState = {
+export const initialState = {
   searchQuery: '',
   filterBy: 'all',
 };

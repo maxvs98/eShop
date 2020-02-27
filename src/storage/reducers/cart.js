@@ -3,7 +3,7 @@ import {
   addToCart, removeFromCart, clearCart, removeOneFromCart,
 } from '../actions/cart';
 
-const initialState = {
+export const initialState = {
   items: [],
 };
 

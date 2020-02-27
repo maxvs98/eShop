@@ -4,7 +4,7 @@ import {
   removeProduct, addProduct, setProducts, changeProduct, setPageCount, setCurrentPage,
 } from '../actions/products';
 
-const initialState = {
+export const initialState = {
   isReady: false,
   isLoaded: false,
   items: null,

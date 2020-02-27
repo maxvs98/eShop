@@ -3,7 +3,7 @@ import {
   removeUser, addUser, setUsers, getUser, changeUser, setPageCount, setCurrentPage,
 } from '../actions/users';
 
-const initialState = {
+export const initialState = {
   isReady: false,
   isLoaded: false,
   items: null,

@@ -37,18 +37,18 @@ class ModalComponent extends React.Component {
     const newTags = tags;
     newTags.push(tag);
     this.setState({
-      tagsState: newTags,
+      tags: newTags,
       newTag: '',
       stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
     });
   }
 
   handleRemoveTag(id) {
-    const { tagsState } = this.state;
-    const newTags = tagsState;
+    const { tags } = this.state;
+    const newTags = tags;
     newTags.splice(id, 1);
     this.setState({
-      tagsState: newTags,
+      tags: newTags,
       stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
     });
   }
