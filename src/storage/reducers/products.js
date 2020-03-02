@@ -25,7 +25,12 @@ export default handleActions({
     ...state,
     items: state.items.map((o) => {
       if (o.id === action.payload.id) {
-        return action.payload.obj;
+        return {
+          /* ...o,
+          ...action.payload.obj,
+          tags: [...o.tags,...action.payload.obj.tags], */
+          ...action.payload.obj,
+        };
       }
       return o;
     }),

@@ -33,23 +33,19 @@ class ModalComponent extends React.Component {
   }
 
   handleAddTag(tag) {
-    const { tags } = this.state;
-    const newTags = tags;
-    newTags.push(tag);
-    this.setState({
-      tags: newTags,
-      newTag: '',
-      stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
-    });
+    if (tag) {
+      const { tags } = this.state;
+      this.setState({
+        tags: [...tags, tag],
+        newTag: '',
+      });
+    }
   }
 
-  handleRemoveTag(id) {
+  handleRemoveTag(index) {
     const { tags } = this.state;
-    const newTags = tags;
-    newTags.splice(id, 1);
     this.setState({
-      tags: newTags,
-      stateUpdate: String(Math.floor(Math.random() * (200 - 20)) + 200),
+      tags: tags.filter((o, idx) => idx !== index),
     });
   }
 
@@ -104,7 +100,6 @@ class ModalComponent extends React.Component {
       picture,
       mark,
       tags,
-      stateUpdate,
       newTag,
     } = this.state;
     const {
@@ -169,7 +164,6 @@ class ModalComponent extends React.Component {
                 return errors;
               }}
               onSubmit={(values) => {
-                /* eslint-disable */
                 const { changeProduct } = this.props;
                 const newProduct = {
                   id,
@@ -179,7 +173,6 @@ class ModalComponent extends React.Component {
                   picture: values.picture,
                   mark,
                   tags,
-                  update: stateUpdate,
                 };
                 changeProduct(id, newProduct);
                 this.toggle();
@@ -248,15 +241,14 @@ class ModalComponent extends React.Component {
                   </div>
 
                   <Input
-                    className="button__addTag"
+                    className="button__addTag modal__input"
                     type="text"
                     name="newTag"
                     placeholder="add new tag"
                     onChange={this.handleChange}
                     value={newTag}
-                    className="modal__input"
                   />
-                  <Button type="button" onClick={() => { newTag ? this.handleAddTag(newTag) : '' }}>
+                  <Button type="button" onClick={() => { this.handleAddTag(newTag); }}>
                     add
                   </Button>
                   <div className="product__tags">
